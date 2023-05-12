@@ -3,7 +3,7 @@
  _Implementation of the taxii2.1 specification in order to well understand the whole thing and to have the simpliest implementation_
 
 ### Purpose :
-Taxii/Stix is currently becoming, if it not the already the case, the common way to share and collect CTI (Cyber Threat Intelligence) along with MISP (Malware information sharing plateform). I found the specification and the currents servers a bit complicated. So in order to understand the whole thing, I started this project, on my own time and on my profesionnal time at KOR Labs (https://korlabs.io/).
+Taxii/Stix is currently becoming, if it not the alreadu the case, the common way to share and collect CTI (Cyber Threat Intelligence) along with MISP (Malware information sharing plateform). I found the specification and the currents servers a bit complicated. So in order to understand the whole thing, I started this project, on my own time and on my profesionnal time at KOR Labs (https://korlabs.io/).
 
 You'll find a well documented code, it might not be the best way to do all the thing, but the implementation is correct and it's working and feel free to add issues and ask for improvement. With always the "simplest as possible" mindset.
 
@@ -99,6 +99,7 @@ Your flask server (this is not a production server) should listen on the port yo
 
 You can start calling it with your most loved requester. (Postman, curl etc).
 
+#### DATABASE, Handling and understanding :
 
 You've currently no data in the mongoDB. You can add somes and create examples of object, collections etc start the file called /database/init_database.py
 

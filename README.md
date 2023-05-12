@@ -1,8 +1,8 @@
-###  Louis' Taxii Server implementation
+##  Louis' Taxii Server implementation
 
  _Implementation of the taxii2.1 specification in order to well understand the whole thing and to have the simpliest implementation_
 
-#### Purpose :
+### Purpose :
 Taxii/Stix is currently becoming, if it not the alreadu the case, the common way to share and collect CTI (Cyber Threat Intelligence) along with MISP (Malware information sharing plateform). I found the specification and the currents servers a bit complicated. So in order to understand the whole thing, I started this project, on my own time and on my profesionnal time at KOR Labs (https://korlabs.io/).
 
 You'll find a well documented code, it might not be the best way to do all the thing, but the implementation is correct and it's working and feel free to add issues and ask for improvement. With always the "simplest as possible" mindset.
@@ -11,12 +11,10 @@ You'll find bellow a installation guide and a step by step to customize my code 
 
 The goal here is that you can implement your own server based on mine. (Check-out the references at the end might be useful too)
 
-
-
-##### Notes :
+#### Notes :
 You'll find the API's basics request bellow in the section "API Paths and CURLs' request"
 
-#### Configuration :
+### Configuration :
 Before doing one thing, you've to copy and paste the configs files. You'll find in the project two files, one about the API configuration and one about the Database configuration.
 
 API Configuration, the file is api_config.yaml. You'll find within the file :
@@ -39,7 +37,7 @@ Database Configuration, the file is db_config.yaml. You'll find within the file 
 - PASSWORD_DB : "password"
     - It's your user's password for the DB 
 
-#### About Docker 
+### About Docker 
 So, my server work with DOCKER, it is composed by two containers :
 
 - MongoBD image
@@ -47,7 +45,7 @@ So, my server work with DOCKER, it is composed by two containers :
 - Ubuntu image
     - Handling API requests and connection to the back-end DB 
 
-#### Docker 
+### Docker 
 In order to use the Taxii server you'll have to have docker & docker-compose installed and ready to use.
 If it's your first-time with docker (or if you re-install it) go check the documentation : https://docs.docker.com/get-docker/ .
 
@@ -102,18 +100,43 @@ Your flask server (this is not a production server) should listen on the port yo
 You can start calling it with your most loved requester. (Postman, curl etc).
 
 
-#### API calls and structures of the methods :
+You've currently no data in the mongoDB. You can add somes and create examples of object, collections etc start the file called /database/init_database.py
+
+It'll create the DB and all the collections you need :
+
+- discovery_database :
+    - discovery_information
+        - It's the document/table you querry when you call the Taxii2
+    - api_root_information
+        - It's the document/table you querry when you can api_root (example1 here)
+         
+- API_ROOT_NAME (here example1)
+    - Collections
+        - It's all the collections you querry from get all collections or get specific collections 
+    - Objects
+        - It's all the object from all the collections (yes there are stored in the same place, the property within the object \_id\_collection will help retrieving the correct collection )
+    - Status
+        - It's the documents you got when you ADD an object into the Taxii Server    
+
+To connect to the DB i personnaly use MongoDB (UI) Compass or mongosh (Shell) :
+Connection string :
+```bash
+mongodb://mongo:password@localhost:27017/?authMechanism=DEFAULT
+```
+
+
+### API calls and structures of the methods :
 
 There is a brief of the methods and their paths, i used postman, and the default port and host (change with your owns) :
 
-##### Notes :
+#### Notes :
 
 _The ID for Object & Collection are all UUID like this : "91a7b528-80eb-42ed-a74d-c6fbd5a26116 "_
 _Info : https://fr.wikipedia.org/wiki/Universally_unique_identifier_
 
 _"Example1" bellow is a root_api, you can list all root_api by calling the "Taxii2 request" (the first one bellow)._
 
-##### GET :
+#### GET :
 - Information about the whole Taxii2
     - http://localhost:6100/taxii2
 - Information about the API_ROOT
@@ -135,7 +158,7 @@ _"Example1" bellow is a root_api, you can list all root_api by calling the "Taxi
 - A status for the previous ADD Object call (see post section bellow)
     - http://localhost:6100/example1/status/UUID-OF-THE-POST-REQUEST
     
-##### POST :
+#### POST :
 - Add an object to a specific collection :
     - http://localhost:6100/example1/collections/UUID-OF-COLLECTION/objects
     - The object is stored in the body of the post request (see bellow curls calls)
@@ -143,11 +166,11 @@ _"Example1" bellow is a root_api, you can list all root_api by calling the "Taxi
 
 You'll get in return a response with the status ID you can use in the get status request above.    
 
-##### DELETE :
+#### DELETE :
 - Delete a specific object from a specific collection :
     - http://localhost:6100/example1/collections/UUID-OF-COLLECTION/objects/UUID-OF-OBJECT
 
-##### Curls equivalent :
+#### Curls equivalent :
 - Information about the whole Taxii2
 ```bash
 curl --location 'http://localhost:6100/taxii2' \
@@ -236,7 +259,7 @@ curl --location 'http://localhost:6100/example1/collections/91a7b528-80eb-42ed-a
 curl --location --request DELETE 'http://localhost:6100/example1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116/objects/bundle--0d8dfb44-b8d6-458a-9430-7336ace819ed' \
 --header 'Authorization: Basic YXBpX2xvZzpwYXNzd29yZA=='
 ```
-#### Documentation
+### Documentation
 
 1. In order to re-generate the HTML document of the source code, first install pdoc3
 
@@ -260,7 +283,7 @@ python3 -m http.server
 ```
 
 
-#### File structure
+### File structure
 ```
 app
 ├──  database

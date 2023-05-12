@@ -1,0 +1,7 @@
+BASE_URL : "http://localhost/"
+PORT : "6100"
+DISCOVERY_PATH : "/discovery"
+DEFAULT_DB : "example1"
+USER : "mongo"
+PASSWORD : "password"
+SERVER_LIMIT: 20

@@ -1,0 +1,2854 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>data_handling API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>data_handling</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import json
+import os
+import traceback
+import yaml
+from pymongo import MongoClient
+import uuid
+import datetime
+import requests
+from pymongo.command_cursor import CommandCursor
+
+
+class DataHandler:
+    def __init__(self, url, username, password):
+        print(url)
+        self.config = self.read_config_file()
+        self.server_limit = self.config.get(&#34;SERVER_LIMIT&#34;)
+        self.client = MongoClient(url, username=username, password=password, authSource=&#39;admin&#39;,
+                                  authMechanism=&#39;SCRAM-SHA-256&#39;)
+
+    def api_root_exist(self, api_root):
+        &#34;&#34;&#34;
+            This function check if the API root exist in the db. It returns false if the API root doesn&#39;t exist
+            it&#39;ll return true if the APi root exist.
+
+            **Input params**
+
+            * api_root (string)(required): name of the API root targeted
+
+            **Returns**
+
+            * False (bolean) :  if the API root doesn&#39;t exist
+            * True (bolean) :   if the APi root exist
+        &#34;&#34;&#34;
+        db_list = self.client.list_database_names()
+        if api_root in db_list:
+            return True
+        else:
+            return False
+
+    def taxii_col_exist(self, api_root, id_col):
+        &#34;&#34;&#34;
+            This function check if the collection exist in the database. it&#39;ll return false is the collection doesn&#39;t
+            exist or true if the collection it must be tested after API_ROOT exist
+
+            I&#39;ll surely merge this function with the api_roost_exist one.
+
+            **Input params**
+
+            * api_root (string)(required): name of the API root targeted
+            * id_col (string)(required): id of the collection, it&#39;s commonly an UUID
+
+            **Returns**
+
+            * False (bolean) :  if the API root doesn&#39;t exist
+            * True (bolean) :   if the APi root exist
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#34;collections&#34;]
+        count = col.count_documents({&#34;id&#34;: id_col})
+        if count == 0:
+            return False
+        else:
+            return True
+
+    def get_database_names(self):
+        &#34;&#34;&#34;
+            This function get a list of the database name. It&#39;ll be usefull to test if a database exist or not.
+
+            **Input params**
+
+            **Returns**
+
+            * x (list)(string) :  A list with whole databases names from mongoDB
+        &#34;&#34;&#34;
+        x = self.client.list_database_names()
+        return x
+
+    def get_collections_names(self):
+        &#34;&#34;&#34;
+            This function get a list of the collection name. It&#39;ll be usefull to test if a collection exist or not.
+            **Returns**
+
+            * x (list)(string) :  A list with whole databases names from mongoDB
+        &#34;&#34;&#34;
+        db_names = self.get_database_names()
+        for name in db_names:
+            db = self.client[name]
+            x = db.list_collection_names()
+
+        return x
+
+    def discovery(self):
+        &#34;&#34;&#34;
+            This function is call by the API to return the information about the whole taxii server. It&#39;s the main
+            function to learn about this server. It&#39;ll be called when you enter the path &#34;/taxii2&#34;.
+
+            Example :
+
+                - title         : &#34;Louis&#39;s Taxi Server&#34;
+                - description   : &#34;First version of louis&#39;s taxii Server&#34;
+                - contact       :&#34;louis.bedeschi@gmail.com&#34;
+                - default       : &#34;default path of api (it&#39;s an url)&#34;
+                - api_roots     : [&#34;https://localhost:6100/example1/&#34;, &#34;https://localhost:6100/example2/&#34;]
+
+            Cf : Section 4.1 Discovery of the specification
+
+            **Input params**
+
+            **Returns**
+
+            * x (CommandCursor)(MongoClient) :  A cursor containing one row.
+        &#34;&#34;&#34;
+        db = self.client[&#39;discovery_database&#39;]
+        col = db[&#39;discovery_information&#39;]
+        pipeline = [
+            {
+                &#39;$lookup&#39;: {
+                    &#39;from&#39;: &#39;api_root_information&#39;,
+                    &#39;localField&#39;: &#39;api_roots&#39;,
+                    &#39;foreignField&#39;: &#39;_url&#39;,
+                    &#39;as&#39;: &#39;_roots&#39;,
+                },
+            },
+            {
+                &#39;$addFields&#39;: {
+                    &#39;api_roots&#39;: &#39;$_roots._url&#39;,
+                },
+            },
+            {
+                &#39;$project&#39;: {
+                    &#39;_roots&#39;: 0,
+                    &#39;_id&#39;: 0,
+                }
+            }
+        ]
+        x = col.aggregate(pipeline).next()
+        return x
+
+    def get_root_information(self, root_api: str):
+        &#34;&#34;&#34;
+            This function is call by the API to get information about a specific root_api, a root API is simply a base
+            url and correspond to a whole new database. In fact our API can be linked to multiple databases.
+            In our example we only have one API_ROOT (example1) which is the base url for the whole docker
+            But you can add everything you need.
+
+            I&#39;ll try to implement a client side asap. If you read this and the client is still not made. You can
+            Check my init_database.py and get inspiration from this to create and handle mongoDB databases and collections
+
+            Take care of one thing : Taxii2 got a collection (in the Mongo universe) called &#34;collection&#34; it might be
+            confusing. In fact there is a collection (a table in relationnal DB) called &#34;collection&#34;.
+
+            It contains :
+
+            Cf : Section 4.2 of the specification
+
+            **Input params**
+
+            * root_api (string)(required) :  A name of the API root you want to get information about
+
+            **Returns**
+
+            * x (CommandCursor)(MongoClient) :  A cursor containing one row.
+        &#34;&#34;&#34;
+        db = self.client[&#39;discovery_database&#39;]
+        col = db[&#39;api_root_information&#39;]
+        x = col.find_one({&#39;_name&#39;: root_api}, {&#39;_id&#39;: 0, &#39;_url&#39;: 0, &#39;_name&#39;: 0})
+
+        return x
+
+    def get_api_root_status_by_id(self, api_root, id_status: str):
+        &#34;&#34;&#34;
+            This function get a status from a previous (POST) add object call.
+            The call of add object will return an envelope with the current status_id, you can query it ONLY once to know
+            the query status.
+
+            Example :
+
+                - _queryable        : 1,
+                - failure_count     : 0,
+                - id                : &#34;c3453dbb-c1cd-4765-9d64-24bcb0a61035&#34;,
+                - pending_count     : 0,
+                - request_timestamp : &#34;2023-05-10T09:16:08.755587+00:00&#34;,
+                - status            : &#34;success&#34;,
+                - success_count     : 1,
+                - timestamp         : &#34;2023-05-10T09:16:08.757312+00:00&#34;,
+                - total_count       : 1
+
+            Cf : Section 4.3 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) :   A name of the API root you want to get the status object from
+            * id_status (string)(required) :  The id of the previous get by the ADD OBJECT API CALL you
+
+            **Returns**
+
+            * x (dict) :  Return a dict with values inside (see example)
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#39;status&#39;]
+        x = col.find_one({&#39;id&#39;: id_status}, {&#39;_id&#39;: 0})
+        if x is None:
+            return &#39; Deleted&#39;
+        if x.get(&#39;_queryable&#39;) &gt;= 2:
+            col.delete_one({&#39;id&#39;: id_status})
+            return &#39;Deleted&#39;
+        else:
+            count = x[&#39;_queryable&#39;]
+            count += 1
+            filter_update = {&#39;id&#39;: id_status}
+            new_values = {
+                &#39;$set&#39;: {&#39;_queryable&#39;: count}
+            }
+            db[&#39;status&#39;].update_one(filter_update, new_values)
+
+        return x
+
+    def get_api_root_collections(self, api_root: str):
+        &#34;&#34;&#34;
+            This function get all collection from an API_ROOT and display it
+
+            Example :
+
+                - id            : &#34;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#34;
+                - title         : &#34;High Value Indicator Collection&#34;
+                - description   : &#34;This data collection is for collecting high value IOCs&#34;
+                - can_read      : true
+                - can_write     : false
+                - media_types   : [&#34;application/vnd.oasis.stix+json; version=2.0&#34;]
+
+            Cf : Section 5.1 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collections from
+
+            **Returns**
+
+            * x (list)(dict) :  Return a list of dict containing all collections with their information
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#39;collections&#39;]
+        x = col.find({}, {&#39;_id&#39;: 0})
+        collection = []
+        for document in x:
+            collection.append(document)
+        x = collection
+
+        return x
+
+    def get_api_root_collection_by_id(self, api_root: str, id_col: str):
+        &#34;&#34;&#34;
+            This function get a specific collection by the giving ID
+
+            Example :
+
+                - id            : &#34;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#34;
+                - title         : &#34;High Value Indicator Collection&#34;
+                - description   : &#34;This data collection is for collecting high value IOCs&#34;
+                - can_read      : true
+                - can_write     : false
+                - media_types   : [&#34;application/vnd.oasis.stix+json; version=2.0&#34;]
+
+            Cf : Section 5.2 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the targeted collection information
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#39;collections&#39;]
+        x = col.find_one({&#39;id&#39;: id_col}, {&#39;_id&#39;: 0})
+
+        return x
+
+    def get_api_root_collections_manifest(self, api_root: str, id_col: str, list_filter: dict) -&gt; dict:
+        &#34;&#34;&#34;
+            This function get all the manifest of a specific collection, a manifest is linked to ONE and ONLY ONE object
+
+            Example :
+
+                - media_type: &#34;application/stix+json;version2.1&#34;,
+                - version   : &#34;2014-11-19T23:39:03.893Z&#34;,
+                - id        : &#34;bundle--2faceb47-5187-4710-8ba7-89b87720d213&#34;,
+                - date_added: &#34;2023-05-10T09:16:08.756725+00:00&#34;
+
+            Cf : Section 5.3 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * list_filter (string)(optional) : Filter that you can use to get a specific manifest or pagination for
+            example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the targeted manifest from a collection
+        &#34;&#34;&#34;
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+        # A FACTORISER
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+        x = &#34;None&#34;
+        if spec_ver is not None and version is not None:
+            x = col.find({&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver, &#34;version&#34;: version},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver, &#34;version&#34;: version}) &gt; (
+                                    page + 1) * limit
+
+        elif spec_ver is not None and version is None:
+            x = col.find({&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver}) &gt; (
+                                    page + 1) * limit
+        elif version is not None and spec_ver is None:
+            x = col.find({&#34;_id_collection&#34;: id_col, &#34;version&#34;: version},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#34;_id_collection&#34;: id_col, &#34;version&#34;: version}) &gt; (
+                                    page + 1) * limit
+        if spec_ver is None and version is None:
+            x = col.find({}, {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents({}) &gt; (page + 1) * limit
+
+        collection = []
+        for document in x:
+            collection.append(document)
+
+        if has_next_page:
+            x = self.create_envelope(True, None, collection)
+        else:
+            x = self.create_envelope(False, None, collection)
+        return x
+
+    def get_api_root_collections_objects(self, api_root: str, id_col: str, list_filter: dict) -&gt; dict:
+        &#34;&#34;&#34;
+            This function get all the object of a specific collection
+
+            Cf : Section 5.4 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing all object from a specific collection
+        &#34;&#34;&#34;
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+        has_next_page = 0
+        if spec_ver is not None and version is not None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version},
+                         {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version}) &gt; (page + 1) * limit
+        elif spec_ver is not None and version is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver}, {&#39;_id&#39;: 0}).skip(page * limit).limit(
+                limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver}) &gt; (
+                    page + 1) * limit
+        elif version is not None and spec_ver is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#34;_manifest.version&#34;: version}, {&#39;_id&#39;: 0}).skip(page * limit).limit(
+                limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#34;_manifest.version&#34;: version}) &gt; (
+                    page + 1) * limit
+        if spec_ver is None and version is None:
+            x = col.find({&#39;_collection_id&#39;: id_col}, {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col}) &gt; (page + 1) * limit
+
+        collection = []
+        for document in x:
+            collection.append(document)
+        x = collection
+        if has_next_page:
+            x = self.create_envelope(True, None, x)
+        else:
+            x = self.create_envelope(False, None, x)
+
+        return x
+
+    def add_api_root_collections_object(self, api_root: str, id_col: str, obj: str) -&gt; dict:
+        &#34;&#34;&#34;
+            This function put a new the object to a specific collection
+
+            Cf : Section 5.5 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * obj (string)(required) : The object a dict string. You get that from Body of the http request
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        length = len(obj[&#39;objects&#39;])
+        if length &gt; 0:
+            db = self.client[api_root]
+            status = self.generate_status(&#39;pending&#39;,
+                                          self.get_date(),
+                                          None, None, None)
+            status_id = status[&#39;id&#39;]
+            db[&#39;status&#39;].insert_one(status)
+            col = self.get_api_root_collections(api_root)
+            exist = False
+            for x in col:
+                if x[&#39;id&#39;] == id_col:
+                    exist = True
+
+            if exist:
+                cpt = 0
+                for x in obj[&#39;objects&#39;]:
+                    self.add_object_manifest(obj[&#39;objects&#39;], cpt)
+                    obj[&#39;objects&#39;][cpt][&#39;_collection_id&#39;] = id_col
+                    spec_version = obj[&#39;objects&#39;][cpt].get(&#34;spec_version&#34;, None) or None
+                    if spec_version is None:
+                        obj[&#39;objects&#39;][cpt][&#34;spec_version&#34;] = &#34;2.1&#34;
+                    col = db[&#39;objects&#39;]
+                    col.insert_one(x)
+                    cpt += 1
+
+                filter_update = {&#39;id&#39;: status_id}
+                new_values = {
+                    &#39;$set&#39;: {&#39;status&#39;: &#39;success&#39;, &#39;success_count&#39;: length, &#39;total_count&#39;: length,
+                             &#39;timestamp&#39;: self.get_date()}
+                }
+                db[&#39;status&#39;].update_one(filter_update, new_values)
+                x = self.get_api_root_status_by_id(api_root, status_id)
+
+                return x
+            else:
+                return None
+
+    def get_api_root_collections_object_by_id(self, api_root: str, id_col: str, id_obj: str, list_filter: dict) -&gt; dict:
+        &#34;&#34;&#34;
+            Function to get a specific object by his id
+
+            Cf : Section 5.6 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * id_obj (string)(required) : The id of the object you want to get
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+             example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+
+        if spec_ver is not None and version is not None:
+            x = col.find(
+                {&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version},
+                {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+        elif spec_ver is not None and version is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}, {&#39;_id&#39;: 0}).skip(
+                page * limit).limit(limit)
+        elif version is not None and spec_ver is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;_manifest.version&#34;: version}, {&#39;_id&#39;: 0}).skip(
+                page * limit).limit(limit)
+        if spec_ver is None and version is None:
+            print(page)
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}, {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+
+        collection = []
+        for document in x:
+            collection.append(document)
+        x = collection
+
+        has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}) &gt; (page + 1) * limit
+        if has_next_page:
+            x = self.create_envelope(True, id_obj, x)
+        else:
+            x = self.create_envelope(False, None, x)
+
+        return x
+
+    def delete_api_root_collections_object_by_id(self, api_root, id_col, id_obj, list_filter):
+        &#34;&#34;&#34;
+            Function to delete a specific object by his id
+
+            Cf : Section 5.7 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * id_obj (string)(required) : The id of the object you want to delete
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+            example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+
+        if spec_ver is not None and version is not None:
+            x = col.delete_one(
+                {&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version})
+        elif spec_ver is not None and version is None:
+            x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver})
+        elif version is not None and spec_ver is None:
+            x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;_manifest.version&#34;: version})
+        if spec_ver is None and version is None:
+            x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj})
+        x = {&#39;delete_count&#39;: x.deleted_count}
+
+        return x
+
+    def get_api_root_collections_object_by_id_versions(self, api_root, id_col, id_obj, list_filter):
+        &#34;&#34;&#34;
+            Function to get all versions of an object
+
+            Cf : Section 5.7 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * id_obj (string)(required) : The id of the object you want to delete
+
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+             example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+
+        # A FACTORISER
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+        x = &#34;None&#34;
+        if spec_ver is not None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: {&#39;version&#39;: 1}}).skip(
+                page * limit).limit(limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}) &gt; (
+                    page + 1) * limit
+        else:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}, {&#39;_id&#39;: 0, &#39;_manifest&#39;: {&#39;version&#39;: 1}}).skip(
+                page * limit).limit(limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}) &gt; (
+                    page + 1) * limit
+
+            col = []
+            for doc in x:
+                col.append(doc)
+
+        if has_next_page:
+            x = self.create_envelope(True, id_obj, col)
+        else:
+            x = self.create_envelope(False, None, col)
+
+        return x
+
+    def add_object_manifest(self, stix_obj, cpt):
+        &#34;&#34;&#34;
+            Custom function to add a manifest everytime you add an object into the Taxii server.
+
+            Example :
+
+                - &#34;media_type&#34;: &#34;application/stix+json;version2.1&#34;,
+                - &#34;version&#34;: &#34;2014-11-19T23:39:03.893Z&#34;,
+                - &#34;id&#34;: &#34;bundle--e31cae3a-4145-4d9a-ac0c-063ae65a5d22&#34;,
+                - &#34;date_added&#34;: &#34;2023-05-10T09:15:56.008587+00:00&#34;
+
+            **Input params**
+
+            * stix_obj (dict)(required) : the dict as top object, you&#39;ll find the targeted object within
+            this list object.
+            * cpt (string)(required) : The current position (call in a loop) of the object
+
+            **Returns**
+
+        &#34;&#34;&#34;
+        _manifest = dict()
+        print(stix_obj)
+        media_type = stix_obj[cpt][&#39;objects&#39;][0].get(&#39;spec_version&#39;, None) or None
+        _type = stix_obj[cpt][&#39;type&#39;]
+        version = stix_obj[cpt][&#39;objects&#39;][0].get(&#39;created&#39;, None) or None
+
+        if media_type is not None:
+            _manifest[&#39;media_type&#39;] = &#39;application/stix+json;version&#39; + media_type
+        else:
+            _manifest[&#39;media_type&#39;] = None
+        if version is None:
+            dt = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
+            _manifest[&#39;version&#39;] = dt.isoformat()
+        else:
+            _manifest[&#39;version&#39;] = version
+
+        _manifest[&#39;id&#39;] = _type + &#39;--&#39; + self.generate_uuid()
+        _manifest[&#39;date_added&#39;] = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+        stix_obj[cpt][&#39;_manifest&#39;] = _manifest
+
+    def generate_uuid(self):
+        &#34;&#34;&#34;
+            Generate uuid4 and return it
+
+            **Returns**
+
+            * uuid : A string (64 char long) representing and Universal unique identifier
+        &#34;&#34;&#34;
+        return str(uuid.uuid4())
+
+    def get_date(self):
+        return datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+
+    def read_config_file(self):
+        file_directory = os.path.dirname(os.path.abspath(__file__))
+        try:
+            with open(&#39;{}/db_config.yaml&#39;.format(file_directory)) as f:
+                config = yaml.safe_load(f)
+                return config
+            # end with
+        except Exception:
+            print(traceback.format_exc())
+            return None
+
+    def generate_status(self, status, request_timestamp, successes, failures, pending):
+        &#34;&#34;&#34;
+            Custom function to generate the status of an added object, remember that you can query this once.
+
+            **Input params**
+
+            * stix_obj (dict)(required) : the dict as top object, you&#39;ll find the targeted object within
+            this list object.
+            * cpt (string)(required) : The current position (call in a loop) of the object
+
+            **Returns**
+
+        &#34;&#34;&#34;
+        if successes is not None:
+            success_count = len(successes)
+        else:
+            success_count = 0
+
+        if failures is not None:
+            failure_count = len(failures)
+        else:
+            failure_count = 0
+
+        if pending is not None:
+            pending_count = len(pending)
+        else:
+            pending_count = 0
+
+        total_count = success_count + failure_count + pending_count
+        status = {
+            &#39;_queryable&#39;: 0,
+            &#39;id&#39;: str(uuid.uuid4()),
+            &#39;status&#39;: status,
+            &#39;request_timestamp&#39;: request_timestamp,
+            &#39;total_count&#39;: total_count,
+            &#39;success_count&#39;: success_count,
+            &#39;failure_count&#39;: failure_count,
+            &#39;pending_count&#39;: pending_count,
+        }
+        return status
+
+    def create_envelope(self, more, next_id, obj):
+        &#34;&#34;&#34;
+            Function to create the envelope that is used as a wrapper for all the multiple object queries.
+
+            **Input params**
+
+            * obj (dict)(required) : the object that you want to wrap into the envelope
+            * next_id (string)(required) : the next id of the object in case of quering a pagination stuff. (Not used at
+            this time but I plan to implement it ASAP)
+
+            **Returns**
+
+            * envelope (dict) : it returns the wrapper with the object inside.
+
+        &#34;&#34;&#34;
+        if more is False:
+            next = None
+        else:
+            next = next_id
+        envelope = {
+            &#34;more&#34;: more,
+            &#34;next&#34;: next,
+            &#34;objects&#34;: [obj]
+        }
+        return envelope
+
+
+if __name__ == &#39;__main__&#39;:
+    p = DataHandler(&#39;mongodb://127.0.0.1:27017/&#39;, &#39;mongo&#39;, &#39;password&#39;)
+    # p.get_collections_names()
+    # x = p.discovery()
+    # print(x)
+    # x = p.get_root_information(&#39;taxii2&#39;)
+    # x = p.get_api_root_collections(&#39;taxii2&#39;)
+    # print(x)
+    # p.get_api_root_collection_by_id(&#39;taxii2&#39;, &#39;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#39;)
+    # x = p.get_api_root_collections_objects(&#39;example1&#39;, &#39;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#39;, {})
+    # x = p.get_api_root_collections_object_by_id(&#39;example1&#39;, &#39;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#39;,&#39;bundle--601cee35-6b16-4e68-a3e7-9ec7d755b4c3&#39;,{&#34;limit&#34;: 1, &#34;page&#34;: 1, &#34;spec_version&#34;: 2.1, &#34;version&#34;: &#34;2023-04-14T14:06:28.000Z&#34;})
+    # p.get_api_root_collections_manifest(&#39;taxii2&#39;, &#39;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#39;, )
+    # p.add_api_root_collections_object(&#39;example1&#39;, &#39;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#39;, &#39;post&#39;) x =
+    # p.delete_api_root_collections_object_by_id(&#39;example1&#39;, &#39;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#39;, &#39;bundle--0d8dfb44-b8d6-458a-9430-7336ace819ed&#39;,{&#34;spec_version&#34;: &#34;2.1&#34;, &#34;version&#34;: &#34;2023-04-14T14:06:28.000Z&#34;})
+    # print(x)
+    # &#39;bundle--0d8dfb44-b8d6-458a-9430-7336ace819ed&#39;) print(x) x= p.get_api_root_collections_object_by_id_versions(
+    # &#39;taxii2&#39;, &#39;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#39;,&#39;bundle--0d8dfb44-b8d6-458a-9430-7336ace819ed&#39;)
+    # print(x)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="data_handling.DataHandler"><code class="flex name class">
+<span>class <span class="ident">DataHandler</span></span>
+<span>(</span><span>url, username, password)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataHandler:
+    def __init__(self, url, username, password):
+        print(url)
+        self.config = self.read_config_file()
+        self.server_limit = self.config.get(&#34;SERVER_LIMIT&#34;)
+        self.client = MongoClient(url, username=username, password=password, authSource=&#39;admin&#39;,
+                                  authMechanism=&#39;SCRAM-SHA-256&#39;)
+
+    def api_root_exist(self, api_root):
+        &#34;&#34;&#34;
+            This function check if the API root exist in the db. It returns false if the API root doesn&#39;t exist
+            it&#39;ll return true if the APi root exist.
+
+            **Input params**
+
+            * api_root (string)(required): name of the API root targeted
+
+            **Returns**
+
+            * False (bolean) :  if the API root doesn&#39;t exist
+            * True (bolean) :   if the APi root exist
+        &#34;&#34;&#34;
+        db_list = self.client.list_database_names()
+        if api_root in db_list:
+            return True
+        else:
+            return False
+
+    def taxii_col_exist(self, api_root, id_col):
+        &#34;&#34;&#34;
+            This function check if the collection exist in the database. it&#39;ll return false is the collection doesn&#39;t
+            exist or true if the collection it must be tested after API_ROOT exist
+
+            I&#39;ll surely merge this function with the api_roost_exist one.
+
+            **Input params**
+
+            * api_root (string)(required): name of the API root targeted
+            * id_col (string)(required): id of the collection, it&#39;s commonly an UUID
+
+            **Returns**
+
+            * False (bolean) :  if the API root doesn&#39;t exist
+            * True (bolean) :   if the APi root exist
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#34;collections&#34;]
+        count = col.count_documents({&#34;id&#34;: id_col})
+        if count == 0:
+            return False
+        else:
+            return True
+
+    def get_database_names(self):
+        &#34;&#34;&#34;
+            This function get a list of the database name. It&#39;ll be usefull to test if a database exist or not.
+
+            **Input params**
+
+            **Returns**
+
+            * x (list)(string) :  A list with whole databases names from mongoDB
+        &#34;&#34;&#34;
+        x = self.client.list_database_names()
+        return x
+
+    def get_collections_names(self):
+        &#34;&#34;&#34;
+            This function get a list of the collection name. It&#39;ll be usefull to test if a collection exist or not.
+            **Returns**
+
+            * x (list)(string) :  A list with whole databases names from mongoDB
+        &#34;&#34;&#34;
+        db_names = self.get_database_names()
+        for name in db_names:
+            db = self.client[name]
+            x = db.list_collection_names()
+
+        return x
+
+    def discovery(self):
+        &#34;&#34;&#34;
+            This function is call by the API to return the information about the whole taxii server. It&#39;s the main
+            function to learn about this server. It&#39;ll be called when you enter the path &#34;/taxii2&#34;.
+
+            Example :
+
+                - title         : &#34;Louis&#39;s Taxi Server&#34;
+                - description   : &#34;First version of louis&#39;s taxii Server&#34;
+                - contact       :&#34;louis.bedeschi@gmail.com&#34;
+                - default       : &#34;default path of api (it&#39;s an url)&#34;
+                - api_roots     : [&#34;https://localhost:6100/example1/&#34;, &#34;https://localhost:6100/example2/&#34;]
+
+            Cf : Section 4.1 Discovery of the specification
+
+            **Input params**
+
+            **Returns**
+
+            * x (CommandCursor)(MongoClient) :  A cursor containing one row.
+        &#34;&#34;&#34;
+        db = self.client[&#39;discovery_database&#39;]
+        col = db[&#39;discovery_information&#39;]
+        pipeline = [
+            {
+                &#39;$lookup&#39;: {
+                    &#39;from&#39;: &#39;api_root_information&#39;,
+                    &#39;localField&#39;: &#39;api_roots&#39;,
+                    &#39;foreignField&#39;: &#39;_url&#39;,
+                    &#39;as&#39;: &#39;_roots&#39;,
+                },
+            },
+            {
+                &#39;$addFields&#39;: {
+                    &#39;api_roots&#39;: &#39;$_roots._url&#39;,
+                },
+            },
+            {
+                &#39;$project&#39;: {
+                    &#39;_roots&#39;: 0,
+                    &#39;_id&#39;: 0,
+                }
+            }
+        ]
+        x = col.aggregate(pipeline).next()
+        return x
+
+    def get_root_information(self, root_api: str):
+        &#34;&#34;&#34;
+            This function is call by the API to get information about a specific root_api, a root API is simply a base
+            url and correspond to a whole new database. In fact our API can be linked to multiple databases.
+            In our example we only have one API_ROOT (example1) which is the base url for the whole docker
+            But you can add everything you need.
+
+            I&#39;ll try to implement a client side asap. If you read this and the client is still not made. You can
+            Check my init_database.py and get inspiration from this to create and handle mongoDB databases and collections
+
+            Take care of one thing : Taxii2 got a collection (in the Mongo universe) called &#34;collection&#34; it might be
+            confusing. In fact there is a collection (a table in relationnal DB) called &#34;collection&#34;.
+
+            It contains :
+
+            Cf : Section 4.2 of the specification
+
+            **Input params**
+
+            * root_api (string)(required) :  A name of the API root you want to get information about
+
+            **Returns**
+
+            * x (CommandCursor)(MongoClient) :  A cursor containing one row.
+        &#34;&#34;&#34;
+        db = self.client[&#39;discovery_database&#39;]
+        col = db[&#39;api_root_information&#39;]
+        x = col.find_one({&#39;_name&#39;: root_api}, {&#39;_id&#39;: 0, &#39;_url&#39;: 0, &#39;_name&#39;: 0})
+
+        return x
+
+    def get_api_root_status_by_id(self, api_root, id_status: str):
+        &#34;&#34;&#34;
+            This function get a status from a previous (POST) add object call.
+            The call of add object will return an envelope with the current status_id, you can query it ONLY once to know
+            the query status.
+
+            Example :
+
+                - _queryable        : 1,
+                - failure_count     : 0,
+                - id                : &#34;c3453dbb-c1cd-4765-9d64-24bcb0a61035&#34;,
+                - pending_count     : 0,
+                - request_timestamp : &#34;2023-05-10T09:16:08.755587+00:00&#34;,
+                - status            : &#34;success&#34;,
+                - success_count     : 1,
+                - timestamp         : &#34;2023-05-10T09:16:08.757312+00:00&#34;,
+                - total_count       : 1
+
+            Cf : Section 4.3 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) :   A name of the API root you want to get the status object from
+            * id_status (string)(required) :  The id of the previous get by the ADD OBJECT API CALL you
+
+            **Returns**
+
+            * x (dict) :  Return a dict with values inside (see example)
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#39;status&#39;]
+        x = col.find_one({&#39;id&#39;: id_status}, {&#39;_id&#39;: 0})
+        if x is None:
+            return &#39; Deleted&#39;
+        if x.get(&#39;_queryable&#39;) &gt;= 2:
+            col.delete_one({&#39;id&#39;: id_status})
+            return &#39;Deleted&#39;
+        else:
+            count = x[&#39;_queryable&#39;]
+            count += 1
+            filter_update = {&#39;id&#39;: id_status}
+            new_values = {
+                &#39;$set&#39;: {&#39;_queryable&#39;: count}
+            }
+            db[&#39;status&#39;].update_one(filter_update, new_values)
+
+        return x
+
+    def get_api_root_collections(self, api_root: str):
+        &#34;&#34;&#34;
+            This function get all collection from an API_ROOT and display it
+
+            Example :
+
+                - id            : &#34;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#34;
+                - title         : &#34;High Value Indicator Collection&#34;
+                - description   : &#34;This data collection is for collecting high value IOCs&#34;
+                - can_read      : true
+                - can_write     : false
+                - media_types   : [&#34;application/vnd.oasis.stix+json; version=2.0&#34;]
+
+            Cf : Section 5.1 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collections from
+
+            **Returns**
+
+            * x (list)(dict) :  Return a list of dict containing all collections with their information
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#39;collections&#39;]
+        x = col.find({}, {&#39;_id&#39;: 0})
+        collection = []
+        for document in x:
+            collection.append(document)
+        x = collection
+
+        return x
+
+    def get_api_root_collection_by_id(self, api_root: str, id_col: str):
+        &#34;&#34;&#34;
+            This function get a specific collection by the giving ID
+
+            Example :
+
+                - id            : &#34;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#34;
+                - title         : &#34;High Value Indicator Collection&#34;
+                - description   : &#34;This data collection is for collecting high value IOCs&#34;
+                - can_read      : true
+                - can_write     : false
+                - media_types   : [&#34;application/vnd.oasis.stix+json; version=2.0&#34;]
+
+            Cf : Section 5.2 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the targeted collection information
+        &#34;&#34;&#34;
+        db = self.client[api_root]
+        col = db[&#39;collections&#39;]
+        x = col.find_one({&#39;id&#39;: id_col}, {&#39;_id&#39;: 0})
+
+        return x
+
+    def get_api_root_collections_manifest(self, api_root: str, id_col: str, list_filter: dict) -&gt; dict:
+        &#34;&#34;&#34;
+            This function get all the manifest of a specific collection, a manifest is linked to ONE and ONLY ONE object
+
+            Example :
+
+                - media_type: &#34;application/stix+json;version2.1&#34;,
+                - version   : &#34;2014-11-19T23:39:03.893Z&#34;,
+                - id        : &#34;bundle--2faceb47-5187-4710-8ba7-89b87720d213&#34;,
+                - date_added: &#34;2023-05-10T09:16:08.756725+00:00&#34;
+
+            Cf : Section 5.3 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * list_filter (string)(optional) : Filter that you can use to get a specific manifest or pagination for
+            example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the targeted manifest from a collection
+        &#34;&#34;&#34;
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+        # A FACTORISER
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+        x = &#34;None&#34;
+        if spec_ver is not None and version is not None:
+            x = col.find({&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver, &#34;version&#34;: version},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver, &#34;version&#34;: version}) &gt; (
+                                    page + 1) * limit
+
+        elif spec_ver is not None and version is None:
+            x = col.find({&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver}) &gt; (
+                                    page + 1) * limit
+        elif version is not None and spec_ver is None:
+            x = col.find({&#34;_id_collection&#34;: id_col, &#34;version&#34;: version},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#34;_id_collection&#34;: id_col, &#34;version&#34;: version}) &gt; (
+                                    page + 1) * limit
+        if spec_ver is None and version is None:
+            x = col.find({}, {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents({}) &gt; (page + 1) * limit
+
+        collection = []
+        for document in x:
+            collection.append(document)
+
+        if has_next_page:
+            x = self.create_envelope(True, None, collection)
+        else:
+            x = self.create_envelope(False, None, collection)
+        return x
+
+    def get_api_root_collections_objects(self, api_root: str, id_col: str, list_filter: dict) -&gt; dict:
+        &#34;&#34;&#34;
+            This function get all the object of a specific collection
+
+            Cf : Section 5.4 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing all object from a specific collection
+        &#34;&#34;&#34;
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+        has_next_page = 0
+        if spec_ver is not None and version is not None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version},
+                         {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents(
+                {&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version}) &gt; (page + 1) * limit
+        elif spec_ver is not None and version is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver}, {&#39;_id&#39;: 0}).skip(page * limit).limit(
+                limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver}) &gt; (
+                    page + 1) * limit
+        elif version is not None and spec_ver is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#34;_manifest.version&#34;: version}, {&#39;_id&#39;: 0}).skip(page * limit).limit(
+                limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#34;_manifest.version&#34;: version}) &gt; (
+                    page + 1) * limit
+        if spec_ver is None and version is None:
+            x = col.find({&#39;_collection_id&#39;: id_col}, {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col}) &gt; (page + 1) * limit
+
+        collection = []
+        for document in x:
+            collection.append(document)
+        x = collection
+        if has_next_page:
+            x = self.create_envelope(True, None, x)
+        else:
+            x = self.create_envelope(False, None, x)
+
+        return x
+
+    def add_api_root_collections_object(self, api_root: str, id_col: str, obj: str) -&gt; dict:
+        &#34;&#34;&#34;
+            This function put a new the object to a specific collection
+
+            Cf : Section 5.5 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * obj (string)(required) : The object a dict string. You get that from Body of the http request
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        length = len(obj[&#39;objects&#39;])
+        if length &gt; 0:
+            db = self.client[api_root]
+            status = self.generate_status(&#39;pending&#39;,
+                                          self.get_date(),
+                                          None, None, None)
+            status_id = status[&#39;id&#39;]
+            db[&#39;status&#39;].insert_one(status)
+            col = self.get_api_root_collections(api_root)
+            exist = False
+            for x in col:
+                if x[&#39;id&#39;] == id_col:
+                    exist = True
+
+            if exist:
+                cpt = 0
+                for x in obj[&#39;objects&#39;]:
+                    self.add_object_manifest(obj[&#39;objects&#39;], cpt)
+                    obj[&#39;objects&#39;][cpt][&#39;_collection_id&#39;] = id_col
+                    spec_version = obj[&#39;objects&#39;][cpt].get(&#34;spec_version&#34;, None) or None
+                    if spec_version is None:
+                        obj[&#39;objects&#39;][cpt][&#34;spec_version&#34;] = &#34;2.1&#34;
+                    col = db[&#39;objects&#39;]
+                    col.insert_one(x)
+                    cpt += 1
+
+                filter_update = {&#39;id&#39;: status_id}
+                new_values = {
+                    &#39;$set&#39;: {&#39;status&#39;: &#39;success&#39;, &#39;success_count&#39;: length, &#39;total_count&#39;: length,
+                             &#39;timestamp&#39;: self.get_date()}
+                }
+                db[&#39;status&#39;].update_one(filter_update, new_values)
+                x = self.get_api_root_status_by_id(api_root, status_id)
+
+                return x
+            else:
+                return None
+
+    def get_api_root_collections_object_by_id(self, api_root: str, id_col: str, id_obj: str, list_filter: dict) -&gt; dict:
+        &#34;&#34;&#34;
+            Function to get a specific object by his id
+
+            Cf : Section 5.6 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * id_obj (string)(required) : The id of the object you want to get
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+             example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+
+        if spec_ver is not None and version is not None:
+            x = col.find(
+                {&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version},
+                {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+        elif spec_ver is not None and version is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}, {&#39;_id&#39;: 0}).skip(
+                page * limit).limit(limit)
+        elif version is not None and spec_ver is None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;_manifest.version&#34;: version}, {&#39;_id&#39;: 0}).skip(
+                page * limit).limit(limit)
+        if spec_ver is None and version is None:
+            print(page)
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}, {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+
+        collection = []
+        for document in x:
+            collection.append(document)
+        x = collection
+
+        has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}) &gt; (page + 1) * limit
+        if has_next_page:
+            x = self.create_envelope(True, id_obj, x)
+        else:
+            x = self.create_envelope(False, None, x)
+
+        return x
+
+    def delete_api_root_collections_object_by_id(self, api_root, id_col, id_obj, list_filter):
+        &#34;&#34;&#34;
+            Function to delete a specific object by his id
+
+            Cf : Section 5.7 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * id_obj (string)(required) : The id of the object you want to delete
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+            example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+        version = list_filter.get(&#34;version&#34;)
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+
+        if spec_ver is not None and version is not None:
+            x = col.delete_one(
+                {&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version})
+        elif spec_ver is not None and version is None:
+            x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver})
+        elif version is not None and spec_ver is None:
+            x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;_manifest.version&#34;: version})
+        if spec_ver is None and version is None:
+            x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj})
+        x = {&#39;delete_count&#39;: x.deleted_count}
+
+        return x
+
+    def get_api_root_collections_object_by_id_versions(self, api_root, id_col, id_obj, list_filter):
+        &#34;&#34;&#34;
+            Function to get all versions of an object
+
+            Cf : Section 5.7 of the specification
+
+            **Input params**
+
+            * api_root (string)(required) : A name of the API root you want to get the collection object from
+            * id_col (string)(required) : The id of the specific collection you want to get information about
+            * id_obj (string)(required) : The id of the object you want to delete
+
+            * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+             example
+
+            **Returns**
+
+            * x (dict) :  Return a dict containing the status of the query (envelope)
+        &#34;&#34;&#34;
+        spec_ver = list_filter.get(&#34;spec_version&#34;)
+
+        # A FACTORISER
+        limit = list_filter.get(&#34;limit&#34;)
+        if limit is not None:
+            limit = int(limit)
+        if limit is None:
+            limit = self.server_limit
+
+        page = list_filter.get(&#34;page&#34;)
+        if page is not None:
+            page = int(page)
+            page += -1
+        else:
+            page = 0
+
+        db = self.client[api_root]
+        col = db[&#39;objects&#39;]
+        x = &#34;None&#34;
+        if spec_ver is not None:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver},
+                         {&#39;_id&#39;: 0, &#39;_manifest&#39;: {&#39;version&#39;: 1}}).skip(
+                page * limit).limit(limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}) &gt; (
+                    page + 1) * limit
+        else:
+            x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}, {&#39;_id&#39;: 0, &#39;_manifest&#39;: {&#39;version&#39;: 1}}).skip(
+                page * limit).limit(limit)
+            has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}) &gt; (
+                    page + 1) * limit
+
+            col = []
+            for doc in x:
+                col.append(doc)
+
+        if has_next_page:
+            x = self.create_envelope(True, id_obj, col)
+        else:
+            x = self.create_envelope(False, None, col)
+
+        return x
+
+    def add_object_manifest(self, stix_obj, cpt):
+        &#34;&#34;&#34;
+            Custom function to add a manifest everytime you add an object into the Taxii server.
+
+            Example :
+
+                - &#34;media_type&#34;: &#34;application/stix+json;version2.1&#34;,
+                - &#34;version&#34;: &#34;2014-11-19T23:39:03.893Z&#34;,
+                - &#34;id&#34;: &#34;bundle--e31cae3a-4145-4d9a-ac0c-063ae65a5d22&#34;,
+                - &#34;date_added&#34;: &#34;2023-05-10T09:15:56.008587+00:00&#34;
+
+            **Input params**
+
+            * stix_obj (dict)(required) : the dict as top object, you&#39;ll find the targeted object within
+            this list object.
+            * cpt (string)(required) : The current position (call in a loop) of the object
+
+            **Returns**
+
+        &#34;&#34;&#34;
+        _manifest = dict()
+        print(stix_obj)
+        media_type = stix_obj[cpt][&#39;objects&#39;][0].get(&#39;spec_version&#39;, None) or None
+        _type = stix_obj[cpt][&#39;type&#39;]
+        version = stix_obj[cpt][&#39;objects&#39;][0].get(&#39;created&#39;, None) or None
+
+        if media_type is not None:
+            _manifest[&#39;media_type&#39;] = &#39;application/stix+json;version&#39; + media_type
+        else:
+            _manifest[&#39;media_type&#39;] = None
+        if version is None:
+            dt = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
+            _manifest[&#39;version&#39;] = dt.isoformat()
+        else:
+            _manifest[&#39;version&#39;] = version
+
+        _manifest[&#39;id&#39;] = _type + &#39;--&#39; + self.generate_uuid()
+        _manifest[&#39;date_added&#39;] = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+        stix_obj[cpt][&#39;_manifest&#39;] = _manifest
+
+    def generate_uuid(self):
+        &#34;&#34;&#34;
+            Generate uuid4 and return it
+
+            **Returns**
+
+            * uuid : A string (64 char long) representing and Universal unique identifier
+        &#34;&#34;&#34;
+        return str(uuid.uuid4())
+
+    def get_date(self):
+        return datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+
+    def read_config_file(self):
+        file_directory = os.path.dirname(os.path.abspath(__file__))
+        try:
+            with open(&#39;{}/db_config.yaml&#39;.format(file_directory)) as f:
+                config = yaml.safe_load(f)
+                return config
+            # end with
+        except Exception:
+            print(traceback.format_exc())
+            return None
+
+    def generate_status(self, status, request_timestamp, successes, failures, pending):
+        &#34;&#34;&#34;
+            Custom function to generate the status of an added object, remember that you can query this once.
+
+            **Input params**
+
+            * stix_obj (dict)(required) : the dict as top object, you&#39;ll find the targeted object within
+            this list object.
+            * cpt (string)(required) : The current position (call in a loop) of the object
+
+            **Returns**
+
+        &#34;&#34;&#34;
+        if successes is not None:
+            success_count = len(successes)
+        else:
+            success_count = 0
+
+        if failures is not None:
+            failure_count = len(failures)
+        else:
+            failure_count = 0
+
+        if pending is not None:
+            pending_count = len(pending)
+        else:
+            pending_count = 0
+
+        total_count = success_count + failure_count + pending_count
+        status = {
+            &#39;_queryable&#39;: 0,
+            &#39;id&#39;: str(uuid.uuid4()),
+            &#39;status&#39;: status,
+            &#39;request_timestamp&#39;: request_timestamp,
+            &#39;total_count&#39;: total_count,
+            &#39;success_count&#39;: success_count,
+            &#39;failure_count&#39;: failure_count,
+            &#39;pending_count&#39;: pending_count,
+        }
+        return status
+
+    def create_envelope(self, more, next_id, obj):
+        &#34;&#34;&#34;
+            Function to create the envelope that is used as a wrapper for all the multiple object queries.
+
+            **Input params**
+
+            * obj (dict)(required) : the object that you want to wrap into the envelope
+            * next_id (string)(required) : the next id of the object in case of quering a pagination stuff. (Not used at
+            this time but I plan to implement it ASAP)
+
+            **Returns**
+
+            * envelope (dict) : it returns the wrapper with the object inside.
+
+        &#34;&#34;&#34;
+        if more is False:
+            next = None
+        else:
+            next = next_id
+        envelope = {
+            &#34;more&#34;: more,
+            &#34;next&#34;: next,
+            &#34;objects&#34;: [obj]
+        }
+        return envelope</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="data_handling.DataHandler.add_api_root_collections_object"><code class="name flex">
+<span>def <span class="ident">add_api_root_collections_object</span></span>(<span>self, api_root: str, id_col: str, obj: str) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function put a new the object to a specific collection</p>
+<p>Cf : Section 5.5 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collection object from</li>
+<li>id_col (string)(required) : The id of the specific collection you want to get information about</li>
+<li>obj (string)(required) : The object a dict string. You get that from Body of the http request</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict containing the status of the query (envelope)</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_api_root_collections_object(self, api_root: str, id_col: str, obj: str) -&gt; dict:
+    &#34;&#34;&#34;
+        This function put a new the object to a specific collection
+
+        Cf : Section 5.5 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collection object from
+        * id_col (string)(required) : The id of the specific collection you want to get information about
+        * obj (string)(required) : The object a dict string. You get that from Body of the http request
+
+        **Returns**
+
+        * x (dict) :  Return a dict containing the status of the query (envelope)
+    &#34;&#34;&#34;
+    length = len(obj[&#39;objects&#39;])
+    if length &gt; 0:
+        db = self.client[api_root]
+        status = self.generate_status(&#39;pending&#39;,
+                                      self.get_date(),
+                                      None, None, None)
+        status_id = status[&#39;id&#39;]
+        db[&#39;status&#39;].insert_one(status)
+        col = self.get_api_root_collections(api_root)
+        exist = False
+        for x in col:
+            if x[&#39;id&#39;] == id_col:
+                exist = True
+
+        if exist:
+            cpt = 0
+            for x in obj[&#39;objects&#39;]:
+                self.add_object_manifest(obj[&#39;objects&#39;], cpt)
+                obj[&#39;objects&#39;][cpt][&#39;_collection_id&#39;] = id_col
+                spec_version = obj[&#39;objects&#39;][cpt].get(&#34;spec_version&#34;, None) or None
+                if spec_version is None:
+                    obj[&#39;objects&#39;][cpt][&#34;spec_version&#34;] = &#34;2.1&#34;
+                col = db[&#39;objects&#39;]
+                col.insert_one(x)
+                cpt += 1
+
+            filter_update = {&#39;id&#39;: status_id}
+            new_values = {
+                &#39;$set&#39;: {&#39;status&#39;: &#39;success&#39;, &#39;success_count&#39;: length, &#39;total_count&#39;: length,
+                         &#39;timestamp&#39;: self.get_date()}
+            }
+            db[&#39;status&#39;].update_one(filter_update, new_values)
+            x = self.get_api_root_status_by_id(api_root, status_id)
+
+            return x
+        else:
+            return None</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.add_object_manifest"><code class="name flex">
+<span>def <span class="ident">add_object_manifest</span></span>(<span>self, stix_obj, cpt)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Custom function to add a manifest everytime you add an object into the Taxii server.</p>
+<p>Example :</p>
+<pre><code>- "media_type": "application/stix+json;version2.1",
+- "version": "2014-11-19T23:39:03.893Z",
+- "id": "bundle--e31cae3a-4145-4d9a-ac0c-063ae65a5d22",
+- "date_added": "2023-05-10T09:15:56.008587+00:00"
+</code></pre>
+<p><strong>Input params</strong></p>
+<ul>
+<li>stix_obj (dict)(required) : the dict as top object, you'll find the targeted object within
+this list object.</li>
+<li>cpt (string)(required) : The current position (call in a loop) of the object</li>
+</ul>
+<p><strong>Returns</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_object_manifest(self, stix_obj, cpt):
+    &#34;&#34;&#34;
+        Custom function to add a manifest everytime you add an object into the Taxii server.
+
+        Example :
+
+            - &#34;media_type&#34;: &#34;application/stix+json;version2.1&#34;,
+            - &#34;version&#34;: &#34;2014-11-19T23:39:03.893Z&#34;,
+            - &#34;id&#34;: &#34;bundle--e31cae3a-4145-4d9a-ac0c-063ae65a5d22&#34;,
+            - &#34;date_added&#34;: &#34;2023-05-10T09:15:56.008587+00:00&#34;
+
+        **Input params**
+
+        * stix_obj (dict)(required) : the dict as top object, you&#39;ll find the targeted object within
+        this list object.
+        * cpt (string)(required) : The current position (call in a loop) of the object
+
+        **Returns**
+
+    &#34;&#34;&#34;
+    _manifest = dict()
+    print(stix_obj)
+    media_type = stix_obj[cpt][&#39;objects&#39;][0].get(&#39;spec_version&#39;, None) or None
+    _type = stix_obj[cpt][&#39;type&#39;]
+    version = stix_obj[cpt][&#39;objects&#39;][0].get(&#39;created&#39;, None) or None
+
+    if media_type is not None:
+        _manifest[&#39;media_type&#39;] = &#39;application/stix+json;version&#39; + media_type
+    else:
+        _manifest[&#39;media_type&#39;] = None
+    if version is None:
+        dt = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc)
+        _manifest[&#39;version&#39;] = dt.isoformat()
+    else:
+        _manifest[&#39;version&#39;] = version
+
+    _manifest[&#39;id&#39;] = _type + &#39;--&#39; + self.generate_uuid()
+    _manifest[&#39;date_added&#39;] = datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()
+    stix_obj[cpt][&#39;_manifest&#39;] = _manifest</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.api_root_exist"><code class="name flex">
+<span>def <span class="ident">api_root_exist</span></span>(<span>self, api_root)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function check if the API root exist in the db. It returns false if the API root doesn't exist
+it'll return true if the APi root exist.</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required): name of the API root targeted</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>False (bolean) :
+if the API root doesn't exist</li>
+<li>True (bolean) :
+if the APi root exist</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def api_root_exist(self, api_root):
+    &#34;&#34;&#34;
+        This function check if the API root exist in the db. It returns false if the API root doesn&#39;t exist
+        it&#39;ll return true if the APi root exist.
+
+        **Input params**
+
+        * api_root (string)(required): name of the API root targeted
+
+        **Returns**
+
+        * False (bolean) :  if the API root doesn&#39;t exist
+        * True (bolean) :   if the APi root exist
+    &#34;&#34;&#34;
+    db_list = self.client.list_database_names()
+    if api_root in db_list:
+        return True
+    else:
+        return False</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.create_envelope"><code class="name flex">
+<span>def <span class="ident">create_envelope</span></span>(<span>self, more, next_id, obj)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to create the envelope that is used as a wrapper for all the multiple object queries.</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>obj (dict)(required) : the object that you want to wrap into the envelope</li>
+<li>next_id (string)(required) : the next id of the object in case of quering a pagination stuff. (Not used at
+this time but I plan to implement it ASAP)</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>envelope (dict) : it returns the wrapper with the object inside.</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_envelope(self, more, next_id, obj):
+    &#34;&#34;&#34;
+        Function to create the envelope that is used as a wrapper for all the multiple object queries.
+
+        **Input params**
+
+        * obj (dict)(required) : the object that you want to wrap into the envelope
+        * next_id (string)(required) : the next id of the object in case of quering a pagination stuff. (Not used at
+        this time but I plan to implement it ASAP)
+
+        **Returns**
+
+        * envelope (dict) : it returns the wrapper with the object inside.
+
+    &#34;&#34;&#34;
+    if more is False:
+        next = None
+    else:
+        next = next_id
+    envelope = {
+        &#34;more&#34;: more,
+        &#34;next&#34;: next,
+        &#34;objects&#34;: [obj]
+    }
+    return envelope</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.delete_api_root_collections_object_by_id"><code class="name flex">
+<span>def <span class="ident">delete_api_root_collections_object_by_id</span></span>(<span>self, api_root, id_col, id_obj, list_filter)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to delete a specific object by his id</p>
+<p>Cf : Section 5.7 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collection object from</li>
+<li>id_col (string)(required) : The id of the specific collection you want to get information about</li>
+<li>id_obj (string)(required) : The id of the object you want to delete</li>
+<li>list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+example</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict containing the status of the query (envelope)</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_api_root_collections_object_by_id(self, api_root, id_col, id_obj, list_filter):
+    &#34;&#34;&#34;
+        Function to delete a specific object by his id
+
+        Cf : Section 5.7 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collection object from
+        * id_col (string)(required) : The id of the specific collection you want to get information about
+        * id_obj (string)(required) : The id of the object you want to delete
+        * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+        example
+
+        **Returns**
+
+        * x (dict) :  Return a dict containing the status of the query (envelope)
+    &#34;&#34;&#34;
+    spec_ver = list_filter.get(&#34;spec_version&#34;)
+    version = list_filter.get(&#34;version&#34;)
+    db = self.client[api_root]
+    col = db[&#39;objects&#39;]
+
+    if spec_ver is not None and version is not None:
+        x = col.delete_one(
+            {&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version})
+    elif spec_ver is not None and version is None:
+        x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver})
+    elif version is not None and spec_ver is None:
+        x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;_manifest.version&#34;: version})
+    if spec_ver is None and version is None:
+        x = col.delete_one({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj})
+    x = {&#39;delete_count&#39;: x.deleted_count}
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.discovery"><code class="name flex">
+<span>def <span class="ident">discovery</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function is call by the API to return the information about the whole taxii server. It's the main
+function to learn about this server. It'll be called when you enter the path "/taxii2".</p>
+<p>Example :</p>
+<pre><code>- title         : "Louis's Taxi Server"
+- description   : "First version of louis's taxii Server"
+- contact       :"louis.bedeschi@gmail.com"
+- default       : "default path of api (it's an url)"
+- api_roots     : ["https://localhost:6100/example1/", "https://localhost:6100/example2/"]
+</code></pre>
+<p>Cf : Section 4.1 Discovery of the specification</p>
+<p><strong>Input params</strong></p>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (CommandCursor)(MongoClient) :
+A cursor containing one row.</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def discovery(self):
+    &#34;&#34;&#34;
+        This function is call by the API to return the information about the whole taxii server. It&#39;s the main
+        function to learn about this server. It&#39;ll be called when you enter the path &#34;/taxii2&#34;.
+
+        Example :
+
+            - title         : &#34;Louis&#39;s Taxi Server&#34;
+            - description   : &#34;First version of louis&#39;s taxii Server&#34;
+            - contact       :&#34;louis.bedeschi@gmail.com&#34;
+            - default       : &#34;default path of api (it&#39;s an url)&#34;
+            - api_roots     : [&#34;https://localhost:6100/example1/&#34;, &#34;https://localhost:6100/example2/&#34;]
+
+        Cf : Section 4.1 Discovery of the specification
+
+        **Input params**
+
+        **Returns**
+
+        * x (CommandCursor)(MongoClient) :  A cursor containing one row.
+    &#34;&#34;&#34;
+    db = self.client[&#39;discovery_database&#39;]
+    col = db[&#39;discovery_information&#39;]
+    pipeline = [
+        {
+            &#39;$lookup&#39;: {
+                &#39;from&#39;: &#39;api_root_information&#39;,
+                &#39;localField&#39;: &#39;api_roots&#39;,
+                &#39;foreignField&#39;: &#39;_url&#39;,
+                &#39;as&#39;: &#39;_roots&#39;,
+            },
+        },
+        {
+            &#39;$addFields&#39;: {
+                &#39;api_roots&#39;: &#39;$_roots._url&#39;,
+            },
+        },
+        {
+            &#39;$project&#39;: {
+                &#39;_roots&#39;: 0,
+                &#39;_id&#39;: 0,
+            }
+        }
+    ]
+    x = col.aggregate(pipeline).next()
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.generate_status"><code class="name flex">
+<span>def <span class="ident">generate_status</span></span>(<span>self, status, request_timestamp, successes, failures, pending)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Custom function to generate the status of an added object, remember that you can query this once.</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>stix_obj (dict)(required) : the dict as top object, you'll find the targeted object within
+this list object.</li>
+<li>cpt (string)(required) : The current position (call in a loop) of the object</li>
+</ul>
+<p><strong>Returns</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_status(self, status, request_timestamp, successes, failures, pending):
+    &#34;&#34;&#34;
+        Custom function to generate the status of an added object, remember that you can query this once.
+
+        **Input params**
+
+        * stix_obj (dict)(required) : the dict as top object, you&#39;ll find the targeted object within
+        this list object.
+        * cpt (string)(required) : The current position (call in a loop) of the object
+
+        **Returns**
+
+    &#34;&#34;&#34;
+    if successes is not None:
+        success_count = len(successes)
+    else:
+        success_count = 0
+
+    if failures is not None:
+        failure_count = len(failures)
+    else:
+        failure_count = 0
+
+    if pending is not None:
+        pending_count = len(pending)
+    else:
+        pending_count = 0
+
+    total_count = success_count + failure_count + pending_count
+    status = {
+        &#39;_queryable&#39;: 0,
+        &#39;id&#39;: str(uuid.uuid4()),
+        &#39;status&#39;: status,
+        &#39;request_timestamp&#39;: request_timestamp,
+        &#39;total_count&#39;: total_count,
+        &#39;success_count&#39;: success_count,
+        &#39;failure_count&#39;: failure_count,
+        &#39;pending_count&#39;: pending_count,
+    }
+    return status</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.generate_uuid"><code class="name flex">
+<span>def <span class="ident">generate_uuid</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generate uuid4 and return it</p>
+<p><strong>Returns</strong></p>
+<ul>
+<li>uuid : A string (64 char long) representing and Universal unique identifier</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_uuid(self):
+    &#34;&#34;&#34;
+        Generate uuid4 and return it
+
+        **Returns**
+
+        * uuid : A string (64 char long) representing and Universal unique identifier
+    &#34;&#34;&#34;
+    return str(uuid.uuid4())</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_api_root_collection_by_id"><code class="name flex">
+<span>def <span class="ident">get_api_root_collection_by_id</span></span>(<span>self, api_root: str, id_col: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function get a specific collection by the giving ID</p>
+<p>Example :</p>
+<pre><code>- id            : "91a7b528-80eb-42ed-a74d-c6fbd5a26116"
+- title         : "High Value Indicator Collection"
+- description   : "This data collection is for collecting high value IOCs"
+- can_read      : true
+- can_write     : false
+- media_types   : ["application/vnd.oasis.stix+json; version=2.0"]
+</code></pre>
+<p>Cf : Section 5.2 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collection object from</li>
+<li>id_col (string)(required) : The id of the specific collection you want to get information about</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict containing the targeted collection information</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_api_root_collection_by_id(self, api_root: str, id_col: str):
+    &#34;&#34;&#34;
+        This function get a specific collection by the giving ID
+
+        Example :
+
+            - id            : &#34;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#34;
+            - title         : &#34;High Value Indicator Collection&#34;
+            - description   : &#34;This data collection is for collecting high value IOCs&#34;
+            - can_read      : true
+            - can_write     : false
+            - media_types   : [&#34;application/vnd.oasis.stix+json; version=2.0&#34;]
+
+        Cf : Section 5.2 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collection object from
+        * id_col (string)(required) : The id of the specific collection you want to get information about
+
+        **Returns**
+
+        * x (dict) :  Return a dict containing the targeted collection information
+    &#34;&#34;&#34;
+    db = self.client[api_root]
+    col = db[&#39;collections&#39;]
+    x = col.find_one({&#39;id&#39;: id_col}, {&#39;_id&#39;: 0})
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_api_root_collections"><code class="name flex">
+<span>def <span class="ident">get_api_root_collections</span></span>(<span>self, api_root: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function get all collection from an API_ROOT and display it</p>
+<p>Example :</p>
+<pre><code>- id            : "91a7b528-80eb-42ed-a74d-c6fbd5a26116"
+- title         : "High Value Indicator Collection"
+- description   : "This data collection is for collecting high value IOCs"
+- can_read      : true
+- can_write     : false
+- media_types   : ["application/vnd.oasis.stix+json; version=2.0"]
+</code></pre>
+<p>Cf : Section 5.1 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collections from</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (list)(dict) :
+Return a list of dict containing all collections with their information</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_api_root_collections(self, api_root: str):
+    &#34;&#34;&#34;
+        This function get all collection from an API_ROOT and display it
+
+        Example :
+
+            - id            : &#34;91a7b528-80eb-42ed-a74d-c6fbd5a26116&#34;
+            - title         : &#34;High Value Indicator Collection&#34;
+            - description   : &#34;This data collection is for collecting high value IOCs&#34;
+            - can_read      : true
+            - can_write     : false
+            - media_types   : [&#34;application/vnd.oasis.stix+json; version=2.0&#34;]
+
+        Cf : Section 5.1 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collections from
+
+        **Returns**
+
+        * x (list)(dict) :  Return a list of dict containing all collections with their information
+    &#34;&#34;&#34;
+    db = self.client[api_root]
+    col = db[&#39;collections&#39;]
+    x = col.find({}, {&#39;_id&#39;: 0})
+    collection = []
+    for document in x:
+        collection.append(document)
+    x = collection
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_api_root_collections_manifest"><code class="name flex">
+<span>def <span class="ident">get_api_root_collections_manifest</span></span>(<span>self, api_root: str, id_col: str, list_filter: dict) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function get all the manifest of a specific collection, a manifest is linked to ONE and ONLY ONE object</p>
+<p>Example :</p>
+<pre><code>- media_type: "application/stix+json;version2.1",
+- version   : "2014-11-19T23:39:03.893Z",
+- id        : "bundle--2faceb47-5187-4710-8ba7-89b87720d213",
+- date_added: "2023-05-10T09:16:08.756725+00:00"
+</code></pre>
+<p>Cf : Section 5.3 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collection object from</li>
+<li>id_col (string)(required) : The id of the specific collection you want to get information about</li>
+<li>list_filter (string)(optional) : Filter that you can use to get a specific manifest or pagination for
+example</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict containing the targeted manifest from a collection</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_api_root_collections_manifest(self, api_root: str, id_col: str, list_filter: dict) -&gt; dict:
+    &#34;&#34;&#34;
+        This function get all the manifest of a specific collection, a manifest is linked to ONE and ONLY ONE object
+
+        Example :
+
+            - media_type: &#34;application/stix+json;version2.1&#34;,
+            - version   : &#34;2014-11-19T23:39:03.893Z&#34;,
+            - id        : &#34;bundle--2faceb47-5187-4710-8ba7-89b87720d213&#34;,
+            - date_added: &#34;2023-05-10T09:16:08.756725+00:00&#34;
+
+        Cf : Section 5.3 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collection object from
+        * id_col (string)(required) : The id of the specific collection you want to get information about
+        * list_filter (string)(optional) : Filter that you can use to get a specific manifest or pagination for
+        example
+
+        **Returns**
+
+        * x (dict) :  Return a dict containing the targeted manifest from a collection
+    &#34;&#34;&#34;
+    spec_ver = list_filter.get(&#34;spec_version&#34;)
+    version = list_filter.get(&#34;version&#34;)
+    # A FACTORISER
+    limit = list_filter.get(&#34;limit&#34;)
+    if limit is not None:
+        limit = int(limit)
+    if limit is None:
+        limit = self.server_limit
+
+    page = list_filter.get(&#34;page&#34;)
+    if page is not None:
+        page = int(page)
+        page += -1
+    else:
+        page = 0
+
+    db = self.client[api_root]
+    col = db[&#39;objects&#39;]
+    x = &#34;None&#34;
+    if spec_ver is not None and version is not None:
+        x = col.find({&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver, &#34;version&#34;: version},
+                     {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+        has_next_page = col.count_documents(
+            {&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver, &#34;version&#34;: version}) &gt; (
+                                page + 1) * limit
+
+    elif spec_ver is not None and version is None:
+        x = col.find({&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver},
+                     {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+        has_next_page = col.count_documents(
+            {&#34;_id_collection&#34;: id_col, &#34;spec_version&#34;: spec_ver}) &gt; (
+                                page + 1) * limit
+    elif version is not None and spec_ver is None:
+        x = col.find({&#34;_id_collection&#34;: id_col, &#34;version&#34;: version},
+                     {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+        has_next_page = col.count_documents(
+            {&#34;_id_collection&#34;: id_col, &#34;version&#34;: version}) &gt; (
+                                page + 1) * limit
+    if spec_ver is None and version is None:
+        x = col.find({}, {&#39;_id&#39;: 0, &#39;_manifest&#39;: 1}).skip(page * limit).limit(limit)
+        has_next_page = col.count_documents({}) &gt; (page + 1) * limit
+
+    collection = []
+    for document in x:
+        collection.append(document)
+
+    if has_next_page:
+        x = self.create_envelope(True, None, collection)
+    else:
+        x = self.create_envelope(False, None, collection)
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_api_root_collections_object_by_id"><code class="name flex">
+<span>def <span class="ident">get_api_root_collections_object_by_id</span></span>(<span>self, api_root: str, id_col: str, id_obj: str, list_filter: dict) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to get a specific object by his id</p>
+<p>Cf : Section 5.6 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collection object from</li>
+<li>id_col (string)(required) : The id of the specific collection you want to get information about</li>
+<li>id_obj (string)(required) : The id of the object you want to get</li>
+<li>list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+example</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict containing the status of the query (envelope)</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_api_root_collections_object_by_id(self, api_root: str, id_col: str, id_obj: str, list_filter: dict) -&gt; dict:
+    &#34;&#34;&#34;
+        Function to get a specific object by his id
+
+        Cf : Section 5.6 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collection object from
+        * id_col (string)(required) : The id of the specific collection you want to get information about
+        * id_obj (string)(required) : The id of the object you want to get
+        * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+         example
+
+        **Returns**
+
+        * x (dict) :  Return a dict containing the status of the query (envelope)
+    &#34;&#34;&#34;
+    limit = list_filter.get(&#34;limit&#34;)
+    if limit is not None:
+        limit = int(limit)
+    if limit is None:
+        limit = self.server_limit
+
+    page = list_filter.get(&#34;page&#34;)
+    if page is not None:
+        page = int(page)
+        page += -1
+    else:
+        page = 0
+
+    spec_ver = list_filter.get(&#34;spec_version&#34;)
+    version = list_filter.get(&#34;version&#34;)
+    db = self.client[api_root]
+    col = db[&#39;objects&#39;]
+
+    if spec_ver is not None and version is not None:
+        x = col.find(
+            {&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version},
+            {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+    elif spec_ver is not None and version is None:
+        x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}, {&#39;_id&#39;: 0}).skip(
+            page * limit).limit(limit)
+    elif version is not None and spec_ver is None:
+        x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;_manifest.version&#34;: version}, {&#39;_id&#39;: 0}).skip(
+            page * limit).limit(limit)
+    if spec_ver is None and version is None:
+        print(page)
+        x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}, {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+
+    collection = []
+    for document in x:
+        collection.append(document)
+    x = collection
+
+    has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}) &gt; (page + 1) * limit
+    if has_next_page:
+        x = self.create_envelope(True, id_obj, x)
+    else:
+        x = self.create_envelope(False, None, x)
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_api_root_collections_object_by_id_versions"><code class="name flex">
+<span>def <span class="ident">get_api_root_collections_object_by_id_versions</span></span>(<span>self, api_root, id_col, id_obj, list_filter)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function to get all versions of an object</p>
+<p>Cf : Section 5.7 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collection object from</li>
+<li>id_col (string)(required) : The id of the specific collection you want to get information about</li>
+<li>
+<p>id_obj (string)(required) : The id of the object you want to delete</p>
+</li>
+<li>
+<p>list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+example</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict containing the status of the query (envelope)</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_api_root_collections_object_by_id_versions(self, api_root, id_col, id_obj, list_filter):
+    &#34;&#34;&#34;
+        Function to get all versions of an object
+
+        Cf : Section 5.7 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collection object from
+        * id_col (string)(required) : The id of the specific collection you want to get information about
+        * id_obj (string)(required) : The id of the object you want to delete
+
+        * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for
+         example
+
+        **Returns**
+
+        * x (dict) :  Return a dict containing the status of the query (envelope)
+    &#34;&#34;&#34;
+    spec_ver = list_filter.get(&#34;spec_version&#34;)
+
+    # A FACTORISER
+    limit = list_filter.get(&#34;limit&#34;)
+    if limit is not None:
+        limit = int(limit)
+    if limit is None:
+        limit = self.server_limit
+
+    page = list_filter.get(&#34;page&#34;)
+    if page is not None:
+        page = int(page)
+        page += -1
+    else:
+        page = 0
+
+    db = self.client[api_root]
+    col = db[&#39;objects&#39;]
+    x = &#34;None&#34;
+    if spec_ver is not None:
+        x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver},
+                     {&#39;_id&#39;: 0, &#39;_manifest&#39;: {&#39;version&#39;: 1}}).skip(
+            page * limit).limit(limit)
+        has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}) &gt; (
+                page + 1) * limit
+    else:
+        x = col.find({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj}, {&#39;_id&#39;: 0, &#39;_manifest&#39;: {&#39;version&#39;: 1}}).skip(
+            page * limit).limit(limit)
+        has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#39;id&#39;: id_obj, &#34;spec_version&#34;: spec_ver}) &gt; (
+                page + 1) * limit
+
+        col = []
+        for doc in x:
+            col.append(doc)
+
+    if has_next_page:
+        x = self.create_envelope(True, id_obj, col)
+    else:
+        x = self.create_envelope(False, None, col)
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_api_root_collections_objects"><code class="name flex">
+<span>def <span class="ident">get_api_root_collections_objects</span></span>(<span>self, api_root: str, id_col: str, list_filter: dict) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function get all the object of a specific collection</p>
+<p>Cf : Section 5.4 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) : A name of the API root you want to get the collection object from</li>
+<li>id_col (string)(required) : The id of the specific collection you want to get information about</li>
+<li>list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for example</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict containing all object from a specific collection</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_api_root_collections_objects(self, api_root: str, id_col: str, list_filter: dict) -&gt; dict:
+    &#34;&#34;&#34;
+        This function get all the object of a specific collection
+
+        Cf : Section 5.4 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) : A name of the API root you want to get the collection object from
+        * id_col (string)(required) : The id of the specific collection you want to get information about
+        * list_filter (string)(optional) : Filter that you can use to get a specific object or pagination for example
+
+        **Returns**
+
+        * x (dict) :  Return a dict containing all object from a specific collection
+    &#34;&#34;&#34;
+    limit = list_filter.get(&#34;limit&#34;)
+    if limit is not None:
+        limit = int(limit)
+    if limit is None:
+        limit = self.server_limit
+
+    page = list_filter.get(&#34;page&#34;)
+    if page is not None:
+        page = int(page)
+        page += -1
+    else:
+        page = 0
+
+    spec_ver = list_filter.get(&#34;spec_version&#34;)
+    version = list_filter.get(&#34;version&#34;)
+
+    db = self.client[api_root]
+    col = db[&#39;objects&#39;]
+    has_next_page = 0
+    if spec_ver is not None and version is not None:
+        x = col.find({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version},
+                     {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+        has_next_page = col.count_documents(
+            {&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver, &#34;_manifest.version&#34;: version}) &gt; (page + 1) * limit
+    elif spec_ver is not None and version is None:
+        x = col.find({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver}, {&#39;_id&#39;: 0}).skip(page * limit).limit(
+            limit)
+        has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#34;spec_version&#34;: spec_ver}) &gt; (
+                page + 1) * limit
+    elif version is not None and spec_ver is None:
+        x = col.find({&#39;_collection_id&#39;: id_col, &#34;_manifest.version&#34;: version}, {&#39;_id&#39;: 0}).skip(page * limit).limit(
+            limit)
+        has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col, &#34;_manifest.version&#34;: version}) &gt; (
+                page + 1) * limit
+    if spec_ver is None and version is None:
+        x = col.find({&#39;_collection_id&#39;: id_col}, {&#39;_id&#39;: 0}).skip(page * limit).limit(limit)
+        has_next_page = col.count_documents({&#39;_collection_id&#39;: id_col}) &gt; (page + 1) * limit
+
+    collection = []
+    for document in x:
+        collection.append(document)
+    x = collection
+    if has_next_page:
+        x = self.create_envelope(True, None, x)
+    else:
+        x = self.create_envelope(False, None, x)
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_api_root_status_by_id"><code class="name flex">
+<span>def <span class="ident">get_api_root_status_by_id</span></span>(<span>self, api_root, id_status: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function get a status from a previous (POST) add object call.
+The call of add object will return an envelope with the current status_id, you can query it ONLY once to know
+the query status.</p>
+<p>Example :</p>
+<pre><code>- _queryable        : 1,
+- failure_count     : 0,
+- id                : "c3453dbb-c1cd-4765-9d64-24bcb0a61035",
+- pending_count     : 0,
+- request_timestamp : "2023-05-10T09:16:08.755587+00:00",
+- status            : "success",
+- success_count     : 1,
+- timestamp         : "2023-05-10T09:16:08.757312+00:00",
+- total_count       : 1
+</code></pre>
+<p>Cf : Section 4.3 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required) :
+A name of the API root you want to get the status object from</li>
+<li>id_status (string)(required) :
+The id of the previous get by the ADD OBJECT API CALL you</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (dict) :
+Return a dict with values inside (see example)</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_api_root_status_by_id(self, api_root, id_status: str):
+    &#34;&#34;&#34;
+        This function get a status from a previous (POST) add object call.
+        The call of add object will return an envelope with the current status_id, you can query it ONLY once to know
+        the query status.
+
+        Example :
+
+            - _queryable        : 1,
+            - failure_count     : 0,
+            - id                : &#34;c3453dbb-c1cd-4765-9d64-24bcb0a61035&#34;,
+            - pending_count     : 0,
+            - request_timestamp : &#34;2023-05-10T09:16:08.755587+00:00&#34;,
+            - status            : &#34;success&#34;,
+            - success_count     : 1,
+            - timestamp         : &#34;2023-05-10T09:16:08.757312+00:00&#34;,
+            - total_count       : 1
+
+        Cf : Section 4.3 of the specification
+
+        **Input params**
+
+        * api_root (string)(required) :   A name of the API root you want to get the status object from
+        * id_status (string)(required) :  The id of the previous get by the ADD OBJECT API CALL you
+
+        **Returns**
+
+        * x (dict) :  Return a dict with values inside (see example)
+    &#34;&#34;&#34;
+    db = self.client[api_root]
+    col = db[&#39;status&#39;]
+    x = col.find_one({&#39;id&#39;: id_status}, {&#39;_id&#39;: 0})
+    if x is None:
+        return &#39; Deleted&#39;
+    if x.get(&#39;_queryable&#39;) &gt;= 2:
+        col.delete_one({&#39;id&#39;: id_status})
+        return &#39;Deleted&#39;
+    else:
+        count = x[&#39;_queryable&#39;]
+        count += 1
+        filter_update = {&#39;id&#39;: id_status}
+        new_values = {
+            &#39;$set&#39;: {&#39;_queryable&#39;: count}
+        }
+        db[&#39;status&#39;].update_one(filter_update, new_values)
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_collections_names"><code class="name flex">
+<span>def <span class="ident">get_collections_names</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function get a list of the collection name. It'll be usefull to test if a collection exist or not.
+<strong>Returns</strong></p>
+<ul>
+<li>x (list)(string) :
+A list with whole databases names from mongoDB</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_collections_names(self):
+    &#34;&#34;&#34;
+        This function get a list of the collection name. It&#39;ll be usefull to test if a collection exist or not.
+        **Returns**
+
+        * x (list)(string) :  A list with whole databases names from mongoDB
+    &#34;&#34;&#34;
+    db_names = self.get_database_names()
+    for name in db_names:
+        db = self.client[name]
+        x = db.list_collection_names()
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_database_names"><code class="name flex">
+<span>def <span class="ident">get_database_names</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function get a list of the database name. It'll be usefull to test if a database exist or not.</p>
+<p><strong>Input params</strong></p>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (list)(string) :
+A list with whole databases names from mongoDB</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_database_names(self):
+    &#34;&#34;&#34;
+        This function get a list of the database name. It&#39;ll be usefull to test if a database exist or not.
+
+        **Input params**
+
+        **Returns**
+
+        * x (list)(string) :  A list with whole databases names from mongoDB
+    &#34;&#34;&#34;
+    x = self.client.list_database_names()
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_date"><code class="name flex">
+<span>def <span class="ident">get_date</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_date(self):
+    return datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.get_root_information"><code class="name flex">
+<span>def <span class="ident">get_root_information</span></span>(<span>self, root_api: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function is call by the API to get information about a specific root_api, a root API is simply a base
+url and correspond to a whole new database. In fact our API can be linked to multiple databases.
+In our example we only have one API_ROOT (example1) which is the base url for the whole docker
+But you can add everything you need.</p>
+<p>I'll try to implement a client side asap. If you read this and the client is still not made. You can
+Check my init_database.py and get inspiration from this to create and handle mongoDB databases and collections</p>
+<p>Take care of one thing : Taxii2 got a collection (in the Mongo universe) called "collection" it might be
+confusing. In fact there is a collection (a table in relationnal DB) called "collection".</p>
+<p>It contains :</p>
+<p>Cf : Section 4.2 of the specification</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>root_api (string)(required) :
+A name of the API root you want to get information about</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>x (CommandCursor)(MongoClient) :
+A cursor containing one row.</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_root_information(self, root_api: str):
+    &#34;&#34;&#34;
+        This function is call by the API to get information about a specific root_api, a root API is simply a base
+        url and correspond to a whole new database. In fact our API can be linked to multiple databases.
+        In our example we only have one API_ROOT (example1) which is the base url for the whole docker
+        But you can add everything you need.
+
+        I&#39;ll try to implement a client side asap. If you read this and the client is still not made. You can
+        Check my init_database.py and get inspiration from this to create and handle mongoDB databases and collections
+
+        Take care of one thing : Taxii2 got a collection (in the Mongo universe) called &#34;collection&#34; it might be
+        confusing. In fact there is a collection (a table in relationnal DB) called &#34;collection&#34;.
+
+        It contains :
+
+        Cf : Section 4.2 of the specification
+
+        **Input params**
+
+        * root_api (string)(required) :  A name of the API root you want to get information about
+
+        **Returns**
+
+        * x (CommandCursor)(MongoClient) :  A cursor containing one row.
+    &#34;&#34;&#34;
+    db = self.client[&#39;discovery_database&#39;]
+    col = db[&#39;api_root_information&#39;]
+    x = col.find_one({&#39;_name&#39;: root_api}, {&#39;_id&#39;: 0, &#39;_url&#39;: 0, &#39;_name&#39;: 0})
+
+    return x</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.read_config_file"><code class="name flex">
+<span>def <span class="ident">read_config_file</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_config_file(self):
+    file_directory = os.path.dirname(os.path.abspath(__file__))
+    try:
+        with open(&#39;{}/db_config.yaml&#39;.format(file_directory)) as f:
+            config = yaml.safe_load(f)
+            return config
+        # end with
+    except Exception:
+        print(traceback.format_exc())
+        return None</code></pre>
+</details>
+</dd>
+<dt id="data_handling.DataHandler.taxii_col_exist"><code class="name flex">
+<span>def <span class="ident">taxii_col_exist</span></span>(<span>self, api_root, id_col)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function check if the collection exist in the database. it'll return false is the collection doesn't
+exist or true if the collection it must be tested after API_ROOT exist</p>
+<p>I'll surely merge this function with the api_roost_exist one.</p>
+<p><strong>Input params</strong></p>
+<ul>
+<li>api_root (string)(required): name of the API root targeted</li>
+<li>id_col (string)(required): id of the collection, it's commonly an UUID</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>False (bolean) :
+if the API root doesn't exist</li>
+<li>True (bolean) :
+if the APi root exist</li>
+</ul></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def taxii_col_exist(self, api_root, id_col):
+    &#34;&#34;&#34;
+        This function check if the collection exist in the database. it&#39;ll return false is the collection doesn&#39;t
+        exist or true if the collection it must be tested after API_ROOT exist
+
+        I&#39;ll surely merge this function with the api_roost_exist one.
+
+        **Input params**
+
+        * api_root (string)(required): name of the API root targeted
+        * id_col (string)(required): id of the collection, it&#39;s commonly an UUID
+
+        **Returns**
+
+        * False (bolean) :  if the API root doesn&#39;t exist
+        * True (bolean) :   if the APi root exist
+    &#34;&#34;&#34;
+    db = self.client[api_root]
+    col = db[&#34;collections&#34;]
+    count = col.count_documents({&#34;id&#34;: id_col})
+    if count == 0:
+        return False
+    else:
+        return True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="data_handling.DataHandler" href="#data_handling.DataHandler">DataHandler</a></code></h4>
+<ul class="">
+<li><code><a title="data_handling.DataHandler.add_api_root_collections_object" href="#data_handling.DataHandler.add_api_root_collections_object">add_api_root_collections_object</a></code></li>
+<li><code><a title="data_handling.DataHandler.add_object_manifest" href="#data_handling.DataHandler.add_object_manifest">add_object_manifest</a></code></li>
+<li><code><a title="data_handling.DataHandler.api_root_exist" href="#data_handling.DataHandler.api_root_exist">api_root_exist</a></code></li>
+<li><code><a title="data_handling.DataHandler.create_envelope" href="#data_handling.DataHandler.create_envelope">create_envelope</a></code></li>
+<li><code><a title="data_handling.DataHandler.delete_api_root_collections_object_by_id" href="#data_handling.DataHandler.delete_api_root_collections_object_by_id">delete_api_root_collections_object_by_id</a></code></li>
+<li><code><a title="data_handling.DataHandler.discovery" href="#data_handling.DataHandler.discovery">discovery</a></code></li>
+<li><code><a title="data_handling.DataHandler.generate_status" href="#data_handling.DataHandler.generate_status">generate_status</a></code></li>
+<li><code><a title="data_handling.DataHandler.generate_uuid" href="#data_handling.DataHandler.generate_uuid">generate_uuid</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_api_root_collection_by_id" href="#data_handling.DataHandler.get_api_root_collection_by_id">get_api_root_collection_by_id</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_api_root_collections" href="#data_handling.DataHandler.get_api_root_collections">get_api_root_collections</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_api_root_collections_manifest" href="#data_handling.DataHandler.get_api_root_collections_manifest">get_api_root_collections_manifest</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_api_root_collections_object_by_id" href="#data_handling.DataHandler.get_api_root_collections_object_by_id">get_api_root_collections_object_by_id</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_api_root_collections_object_by_id_versions" href="#data_handling.DataHandler.get_api_root_collections_object_by_id_versions">get_api_root_collections_object_by_id_versions</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_api_root_collections_objects" href="#data_handling.DataHandler.get_api_root_collections_objects">get_api_root_collections_objects</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_api_root_status_by_id" href="#data_handling.DataHandler.get_api_root_status_by_id">get_api_root_status_by_id</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_collections_names" href="#data_handling.DataHandler.get_collections_names">get_collections_names</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_database_names" href="#data_handling.DataHandler.get_database_names">get_database_names</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_date" href="#data_handling.DataHandler.get_date">get_date</a></code></li>
+<li><code><a title="data_handling.DataHandler.get_root_information" href="#data_handling.DataHandler.get_root_information">get_root_information</a></code></li>
+<li><code><a title="data_handling.DataHandler.read_config_file" href="#data_handling.DataHandler.read_config_file">read_config_file</a></code></li>
+<li><code><a title="data_handling.DataHandler.taxii_col_exist" href="#data_handling.DataHandler.taxii_col_exist">taxii_col_exist</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

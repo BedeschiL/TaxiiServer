@@ -3,7 +3,7 @@ import os
 import traceback
 import unittest
 import yaml
-from app import *
+from src import *
 
 
 class Test(unittest.TestCase):

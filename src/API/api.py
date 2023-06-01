@@ -9,8 +9,8 @@ from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
 
 from api_error import CustomException
-from app.database import data_handling
-from app.database.data_handling import DataHandler
+from src.database import data_handling
+from src.database.data_handling import DataHandler
 
 
 def read_config_file():

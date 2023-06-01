@@ -75,7 +75,7 @@ You can stop it by using "Ctrl + Z" and then kill it with "docker-compose down".
 When you start without the "-d" option, you should see the ubuntu launching the API.PY :
 ```bash
 ubuntu_1   | mongodb://mongo:password@mongodb:27017/mydatabase
-ubuntu_1   |  * Serving Flask app 'api'
+ubuntu_1   |  * Serving Flask src 'api'
 ubuntu_1   |  * Debug mode: on
 ubuntu_1   | WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
 ubuntu_1   |  * Running on all addresses (0.0.0.0)

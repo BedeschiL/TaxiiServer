@@ -4,9 +4,9 @@ RUN apt-get update && \
     apt-get install -y python3-pip net-tools nano
 
 COPY /requirements.txt /app/
-RUN pip3 install -r /app/requirements.txt
+RUN pip3 install -r /src/requirements.txt
 
-COPY ./app/ /app
+COPY src/ /app
 
 WORKDIR /app
 

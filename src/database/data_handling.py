@@ -169,8 +169,8 @@ class DataHandler:
 
     def get_api_root_status_by_id(self, api_root, id_status: str):
         """
-        This function get a status from a previous (POST) add object call. The call of add object will return an
-        envelope with the current status_id, you can query it ONLY once to know the query status.
+            This function get a status from a previous (POST) add object call. The call of add object will return an
+            envelope with the current status_id, you can query it ONLY once to know the query status.
 
             Example :
 

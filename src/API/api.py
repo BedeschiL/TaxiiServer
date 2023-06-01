@@ -2,21 +2,18 @@ import json
 import os
 import re
 import traceback
-
 import yaml
 from flask import Flask, Response, request, jsonify
 from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
-
 from api_error import CustomException
-from src.database import data_handling
 from src.database.data_handling import DataHandler
 
 
-def read_config_file():
+def read_config_file(filepath):
     file_directory = os.path.dirname(os.path.abspath(__file__))
     try:
-        with open('{}/config/api_config.yaml'.format(file_directory)) as f:
+        with open('{}/{}'.format(file_directory, filepath)) as f:
             config = yaml.safe_load(f)
             return config
         # end with
@@ -25,7 +22,7 @@ def read_config_file():
         return None
 
 
-config = read_config_file()
+config = read_config_file("config/api_config.yaml")
 print(config)
 users = {
     config.get("USER"): config.get("PASSWORD")
@@ -40,9 +37,20 @@ p = DataHandler(app.config["MONGO_URI"], "mongo", "password")
 
 @auth.verify_password
 def verify_password(username, password):
-    print(username)
-    print(password)
-    # Vérifiez si le nom d'utilisateur et le mot de passe sont valides
+    """
+         This function
+        **Input params**
+
+        * username (string)(required): username you get from /config/api_config.yaml
+        * password (string)(required): password you get from /config/api_config.yaml
+
+        **Returns**
+
+        * username (string)(required) : return username in the case the username belongs to the username dict
+
+        * raising CustomException in the case the username or/and password are not present in the username dict
+
+    """
     if username in users and password == users[username]:
         return username
     else:
@@ -82,13 +90,11 @@ def taxii_col_exist(api_root, col):
         raise CustomException('The collections is not found, or the client does not have access to the collections '
                               'resource', 404)
 
-#
+
 @app.errorhandler(CustomException)
 def handle_exception(error):
-    # Récupérer le code d'erreur et le message de l'exception personnalisée
     code = error.code
     message = str(error)
-    # Renvoyer une réponse JSON avec le code d'erreur et le message personnalisé
     response = jsonify({'error': message})
     response.status_code = code
     return response

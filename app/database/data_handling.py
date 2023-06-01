@@ -646,7 +646,7 @@ class DataHandler:
     def read_config_file(self):
         file_directory = os.path.dirname(os.path.abspath(__file__))
         try:
-            with open('{}/db_config.yaml'.format(file_directory)) as f:
+            with open('{}/config/db_config.yaml'.format(file_directory)) as f:
                 config = yaml.safe_load(f)
                 return config
             # end with

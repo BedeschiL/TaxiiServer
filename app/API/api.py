@@ -16,7 +16,7 @@ from app.database.data_handling import DataHandler
 def read_config_file():
     file_directory = os.path.dirname(os.path.abspath(__file__))
     try:
-        with open('{}/api_config.yaml'.format(file_directory)) as f:
+        with open('{}/config/api_config.yaml'.format(file_directory)) as f:
             config = yaml.safe_load(f)
             return config
         # end with

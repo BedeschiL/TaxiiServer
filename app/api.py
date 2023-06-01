@@ -82,7 +82,7 @@ def taxii_col_exist(api_root, col):
         raise CustomException('The collections is not found, or the client does not have access to the collections '
                               'resource', 404)
 
-
+#
 @app.errorhandler(CustomException)
 def handle_exception(error):
     # Récupérer le code d'erreur et le message de l'exception personnalisée

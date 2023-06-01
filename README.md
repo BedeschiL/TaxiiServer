@@ -286,20 +286,22 @@ python3 -m http.server
 
 ### File structure
 ```
-app
+src
 ├──  database
-     ├── test
-         ├── init_database_test.py
+     ├── Config
+         └── db_config.yaml
      ├── data_handling.py
      ├── db_config.yaml
      ├── init_database.py
-     ├── stixExample.json
-├──  api.py      
-├──  api_config.yaml
-├──  api_error.py
-└──  requirements.txt
+     └── stixExample.json   
+├──  API   
+     ├── Config
+         └── api_config.yaml
+     ├──  api.py
+     └──  api_error.py
 docker-compose.yaml
 Dockerfile
+requirements.txt
 
 ```
 

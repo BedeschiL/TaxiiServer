@@ -40,6 +40,8 @@ p = DataHandler(app.config["MONGO_URI"], "mongo", "password")
 
 @auth.verify_password
 def verify_password(username, password):
+    print(username)
+    print(password)
     # Vérifiez si le nom d'utilisateur et le mot de passe sont valides
     if username in users and password == users[username]:
         return username

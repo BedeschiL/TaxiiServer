@@ -1,7 +1,5 @@
 BASE_URL : "http://localhost/"
 PORT : "6100"
-DISCOVERY_PATH : "/discovery"
-DEFAULT_DB : "example1"
-USER : "mongo"
-PASSWORD : "password"
+USER : "api_user"
+PASSWORD : "api_password"
 SERVER_LIMIT: 20

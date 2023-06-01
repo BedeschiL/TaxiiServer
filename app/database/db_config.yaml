@@ -1,3 +1,2 @@
-USER_DB : "mongo"
-PASSWORD_DB : "password"
-SERVER_LIMIT: 10
+USER_DB : "db_user"
+PASSWORD_DB : "db_password"

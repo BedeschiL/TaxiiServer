@@ -30,7 +30,7 @@ users = {
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-app.config["MONGO_URI"] = "mongodb://mongo:password@mongodb:27017/mydatabase"
+app.config["MONGO_URI"] = "mongodb://mongo:password@mongodb:27017"
 mongo = PyMongo(app)
 p = DataHandler(app.config["MONGO_URI"], "mongo", "password")
 

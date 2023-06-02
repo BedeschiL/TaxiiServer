@@ -10,15 +10,23 @@ import yaml
 class ApiTest(unittest.TestCase):
 
     def test_discovery(self):
-        url = "http://localhost:6100/"
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
+        url = "{}:{}/taxii2".format(base_url, port)
         response = requests.get(url)
         status_code = response.status_code
-        self.assertEquals(status_code, 404)
+        self.assertEquals(status_code, 401)
 
     def test_discovery_no_auth_no_accept(self):
-        url = "http://localhost:6100/taxii2"
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
+
+        url = "{}:{}/taxii2".format(base_url, port)
         response = requests.get(url)
         status_code = response.status_code
+
         self.assertEquals(status_code, 401)
 
     def test_discovery_auth_only_no_accept(self):
@@ -28,8 +36,8 @@ class ApiTest(unittest.TestCase):
         passwd = cf.get("PASSWORD")
         user = cf.get("USER")
 
-        url = "http://localhost:6100/taxii2"
-        response = requests.get(url, auth=HTTPBasicAuth(user,passwd))
+        url = "{}:{}/taxii2".format(base_url, port)
+        response = requests.get(url, auth=HTTPBasicAuth(user, passwd))
         status_code = response.status_code
 
         self.assertEquals(status_code, 406)
@@ -41,8 +49,9 @@ class ApiTest(unittest.TestCase):
         passwd = cf.get("PASSWORD")
         user = cf.get("USER")
 
-        url = "http://{}:{}/taxii2".format(base_url, port)
-        response = requests.get(url, auth=HTTPBasicAuth(user, passwd), headers={'Accept':'application/taxii+json;version=2.1'})
+        url = "{}:{}/taxii2".format(base_url, port)
+        response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
+                                headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
         self.assertEquals(status_code, 200)
@@ -54,7 +63,7 @@ class ApiTest(unittest.TestCase):
         user = "blabla"
         passwd = "blabla"
 
-        url = "http://{}:{}/taxii2".format(base_url, port)
+        url = "{}:{}/taxii2".format(base_url, port)
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
@@ -67,7 +76,7 @@ class ApiTest(unittest.TestCase):
         port = cf.get("PORT")
         user = cf.get("USER")
         passwd = "blabla"
-        url = "http://{}:{}/taxii2".format(base_url,port)
+        url = "{}:{}/taxii2".format(base_url, port)
 
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
@@ -75,11 +84,81 @@ class ApiTest(unittest.TestCase):
 
         self.assertEquals(status_code, 401)
 
+    ######
+    def test_api_root(self):
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
+        url = "{}:{}/example1".format(base_url, port)
+        response = requests.get(url)
+        status_code = response.status_code
+        self.assertEquals(status_code, 401)
 
+    def test_api_root_no_auth_no_accept(self):
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
 
+        url = "{}:{}/example1".format(base_url, port)
+        response = requests.get(url)
+        status_code = response.status_code
 
+        self.assertEquals(status_code, 401)
 
+    def test_api_root_auth_only_no_accept(self):
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
+        passwd = cf.get("PASSWORD")
+        user = cf.get("USER")
 
+        url = "{}:{}/example1".format(base_url, port)
+        response = requests.get(url, auth=HTTPBasicAuth(user, passwd))
+        status_code = response.status_code
+
+        self.assertEquals(status_code, 406)
+
+    def test_api_root_auth_accept(self):
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
+        passwd = cf.get("PASSWORD")
+        user = cf.get("USER")
+
+        url = "{}:{}/example1".format(base_url, port)
+        response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
+                                headers={'Accept': 'application/taxii+json;version=2.1'})
+        status_code = response.status_code
+
+        self.assertEquals(status_code, 200)
+
+    def test_api_root_auth_accept_wrong_user_pass(self):
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
+        user = "blabla"
+        passwd = "blabla"
+
+        url = "{}:{}/example1".format(base_url, port)
+        response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
+                                headers={'Accept': 'application/taxii+json;version=2.1'})
+        status_code = response.status_code
+
+        self.assertEquals(status_code, 401)
+
+    def test_api_root_auth_accept_right_user_wrong_password(self):
+        cf = self.read_config_file("../API/config/api_config.yaml")
+        base_url = cf.get("BASE_URL")
+        port = cf.get("PORT")
+        user = cf.get("USER")
+        passwd = "blabla"
+        url = "{}:{}/example1".format(base_url, port)
+
+        response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
+                                headers={'Accept': 'application/taxii+json;version=2.1'})
+        status_code = response.status_code
+
+        self.assertEquals(status_code, 401)
 
     def read_config_file(self, filepath):
         file_directory = os.path.dirname(os.path.abspath(__file__))

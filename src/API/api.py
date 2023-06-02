@@ -6,7 +6,7 @@ import yaml
 from flask import Flask, Response, request, jsonify
 from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
-from api_error import CustomException
+from src.API.api_error import CustomException
 from src.database.data_handling import DataHandler
 
 

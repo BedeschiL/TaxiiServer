@@ -1,16 +1,19 @@
 FROM ubuntu:latest
 
 RUN apt-get update && \
-    apt-get install -y python3-pip net-tools nano
+    apt-get install -y python3-pip
 
-COPY /src/requirements.txt /src/
-RUN pip3 install -r /src/requirements.txt
+COPY /src/requirements.txt /TaxiiServer/src/
+COPY /venv /TaxiiServer/venv/
+RUN pip3 install -r /TaxiiServer/src/requirements.txt
 
-COPY src/ /src
+COPY src/ /TaxiiServer/src
 
-WORKDIR /src
+WORKDIR /TaxiiServer
 
-CMD ["python3", "api.py"]
+ENV PYTHONPATH="${PYTHONPATH}:/TaxiiServer/src/"
+
+CMD ["python3", "src/API/api.py"]
 
 
 

@@ -67,7 +67,7 @@ def validate_version_parameter_in_accept_header():
             if len(result.groups()) >= 1:
                 version_str = result.group(2)
                 if version_str != "2.1":  # The server only supports 2.1
-                    raise CustomException('This serveur only support 2.1 STIX', 404)
+                    raise CustomException('This server only support 2.1 STIX', 404)
             found = True
             break
 
@@ -80,7 +80,7 @@ def validate_version_parameter_in_accept_header():
 def api_root_exist(api_root):
     exist = p.api_root_exist(api_root)
     if exist is False:
-        raise CustomException('The API Root is not found, or the client does not have access to the ressource '
+        raise CustomException('The API Root is not found, or the client does not have access to the resource '
                               'resource', 404)
 
 
@@ -228,4 +228,10 @@ def get_api_root_status_by_id(api_root, id_status):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=6100, debug=True)
+    cf = read_config_file("config/api_config.yaml")
+    print(type(cf))
+    port = cf.get('PORT')
+    base_url = cf.get('BASE_URL')
+    app.run(host=base_url, port=port, debug=True)
+
+

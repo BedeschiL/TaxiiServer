@@ -1,4 +1,5 @@
-BASE_URL : "http://localhost"
+BASE_URL : "0.0.0.0"
+TEST_BASE_URL : "http://localhost"
 PORT : "6100"
 USER : "api_user"
 PASSWORD : "api_password"

@@ -20,14 +20,46 @@ Before doing one thing, you've to copy and paste the configs files. You'll find 
 API Configuration, the file is api_config.yaml. You'll find within the file :
 - BASE_URL : "http://localhost/"
     - It's the default url for the base API
+- TEST_BASE_URL : "http://localhost":
+    - It's the url used for test classes 
 - PORT : "6100"
     - The port where the API will listen to the calls
-- USER : "api_log"
+- USER : "api_user"
     - It's the API's user, you'll have to add it to your HTTP basics authentication (Cf. API's path bellow) 
-- PASSWORD : "password"
+- PASSWORD : "api_password"
     - It's your user's password
 - SERVER_LIMIT: 20
     - It's the maximum number of object returned for one call.  
+
+
+### DockerFile & Docker-compose intro :
+If you change the PORT above you'll to change de port expose by docker-compose see bellow :
+
+```
+version: '3'
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - ${DATA_DIR:-./data/db}:/data/db
+  ubuntu:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "6100:6100"
+    depends_on:
+      - mongodb
+
+```
+In the ubuntu section you've to change the keys 'ports': -"6100:6100" to the same port bidding in your API's config file.
 
 
 Database Configuration, the file is db_config.yaml. You'll find within the file :

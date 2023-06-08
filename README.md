@@ -3,11 +3,11 @@
  _Implementation of the taxii2.1 specification in order to well understand the whole thing and to have the simpliest implementation_
 
 ### Purpose :
-Taxii/Stix is currently becoming, if it not the alreadu the case, the common way to share and collect CTI (Cyber Threat Intelligence) along with MISP (Malware information sharing plateform). I found the specification and the currents servers a bit complicated. So in order to understand the whole thing, I started this project, on my own time and on my profesionnal time at KOR Labs (https://korlabs.io/).
+Taxii/Stix is currently becoming, if it not the already the case, the common way to share and collect CTI (Cyber Threat Intelligence) along with MISP (Malware information sharing plateform). So in order to understand the whole thing, I started this project, on my own time and on my profesionnal time at KOR Labs (https://korlabs.io/).
 
 You'll find a well documented code, it might not be the best way to do all the thing, but the implementation is correct and it's working and feel free to add issues and ask for improvement. With always the "simplest as possible" mindset.
 
-You'll find bellow a installation guide and a step by step to customize my code the way you want.
+You'll find bellow a install guide and a step by step to customize my code the way you want.
 
 The goal here is that you can implement your own server based on mine. (Check-out the references at the end might be useful too)
 
@@ -20,11 +20,13 @@ Before doing one thing, you've to copy and paste the configs files. You'll find 
 API Configuration, the file is api_config.yaml. You'll find within the file :
 - BASE_URL : "http://localhost/"
     - It's the default url for the base API
+- TEST_BASE_URL : "http://localhost":
+    - It's the url used for test classes 
 - PORT : "6100"
     - The port where the API will listen to the calls
-- USER : "api_log"
+- USER : "api_user"
     - It's the API's user, you'll have to add it to your HTTP basics authentication (Cf. API's path bellow) 
-- PASSWORD : "password"
+- PASSWORD : "api_password"
     - It's your user's password
 - SERVER_LIMIT: 20
     - It's the maximum number of object returned for one call.  
@@ -37,6 +39,35 @@ Database Configuration, the file is db_config.yaml. You'll find within the file 
 - PASSWORD_DB : "password"
     - It's your user's password for the DB 
 
+### DockerFile, Docker-Compose and handling exposed ports:
+If you change the PORT above you'll to change de port expose by docker-compose see bellow :
+
+```
+version: '3'
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - ${DATA_DIR:-./data/db}:/data/db
+  ubuntu:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "6100:6100"
+    depends_on:
+      - mongodb
+
+```
+In the ubuntu (only in the ubuntu, DO NOT change the mongo port for now, i'll add a specific conf for this) section you've to change the keys 'ports': -"6100:6100" to the same port bidding in your API's config file.
+
 ### About Docker 
 So, my server work with DOCKER, it is composed by two containers :
 
@@ -44,6 +75,13 @@ So, my server work with DOCKER, it is composed by two containers :
     - Storing objects, collections, root_api, etc...
 - Ubuntu image
     - Handling API requests and connection to the back-end DB 
+
+
+A view of the structure :
+![Schema Docker](https://github.com/BedeschiL/TaxiiServer/raw/master/schema_docker.png)
+
+
+
 
 ### Docker 
 In order to use the Taxii server you'll have to have docker & docker-compose installed and ready to use.
@@ -119,10 +157,10 @@ It'll create the DB and all the collections you need :
     - Status
         - It's the documents you got when you ADD an object into the Taxii Server    
 
-To connect to the DB i personnaly use MongoDB (UI) Compass or mongosh (Shell) :
+To connect to the DB I personnaly use MongoDB Compass (UI) or mongosh (Shell) :
 Connection string :
 ```bash
-mongodb://mongo:password@localhost:27017/?authMechanism=DEFAULT
+mongodb://usr_name:password@localhost:27017/?authMechanism=DEFAULT
 ```
 
 

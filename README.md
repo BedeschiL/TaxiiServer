@@ -1,21 +1,22 @@
 ##  Louis' Taxii Server implementation
 
- _Implementation of the taxii2.1 specification in order to well understand the whole thing and to have the simpliest implementation_
+ _Implementation of the Taxii 2.1 specification in order to understand the whole thing well and have the simplest implementation._
 
 ### Purpose :
-Taxii/Stix is currently becoming, if it not the already the case, the common way to share and collect CTI (Cyber Threat Intelligence) along with MISP (Malware information sharing plateform). So in order to understand the whole thing, I started this project, on my own time and on my profesionnal time at KOR Labs (https://korlabs.io/).
+Taxii/Stix is currently becoming, if it's not already the case, the common way to share and collect CTI (Cyber Threat Intelligence) along with MISP (Malware information sharing platform). So, in order to understand the whole thing, I started this project on my own time and on my professional time at KOR Labs (https://korlabs.io/).
 
-You'll find a well documented code, it might not be the best way to do all the thing, but the implementation is correct and it's working and feel free to add issues and ask for improvement. With always the "simplest as possible" mindset.
+You'll find well-documented code. It might not be the best way to do everything, but the implementation is correct, working, and feel free to add issues and ask for improvements. Always with the mindset of "simplest as possible."
 
-You'll find bellow a install guide and a step by step to customize my code the way you want.
+Below, you'll find an installation guide and step-by-step instructions to customize my code the way you want.
 
-The goal here is that you can implement your own server based on mine. (Check-out the references at the end might be useful too)
+The goal here is that you can implement your own server based on mine. (Checking out the references at the end might be useful too)
 
 #### Notes :
-You'll find the API's basics request bellow in the section "API Paths and CURLs' request"
+You'll find the API's basic requests below in the section "API Paths and CURLs' request."
+
 
 ### Configuration :
-Before doing one thing, you've to copy and paste the configs files. You'll find in the project two files, one about the API configuration and one about the Database configuration.
+Before doing anything, you have to copy and paste the config files. In the project, you'll find two files: one for the API configuration and one for the Database configuration.
 
 API Configuration, the file is api_config.yaml. You'll find within the file :
 - BASE_URL : "http://localhost/"
@@ -40,7 +41,7 @@ Database Configuration, the file is db_config.yaml. You'll find within the file 
     - It's your user's password for the DB 
 
 ### DockerFile, Docker-Compose and handling exposed ports:
-If you change the PORT above you'll to change de port expose by docker-compose see bellow :
+If you change the PORT above, you'll need to change the port exposed by docker-compose as shown below:
 
 ```
 version: '3'
@@ -66,10 +67,11 @@ services:
       - mongodb
 
 ```
-In the ubuntu (only in the ubuntu, DO NOT change the mongo port for now, i'll add a specific conf for this) section you've to change the keys 'ports': -"6100:6100" to the same port bidding in your API's config file.
+In the ubuntu section (only in the ubuntu, DO NOT change the mongo port for now, I'll add a specific conf for this), you need to change the keys 'ports': -"6100:6100" to the same port binding in your API's config file.
 
 ### About Docker 
-So, my server work with DOCKER, it is composed by two containers :
+
+So, my server works with Docker and is composed of two containers:
 
 - MongoBD image
     - Storing objects, collections, root_api, etc...
@@ -77,40 +79,48 @@ So, my server work with DOCKER, it is composed by two containers :
     - Handling API requests and connection to the back-end DB 
 
 
-A view of the structure :
+A view of the structure: Schema Docker
+
 ![Schema Docker](https://github.com/BedeschiL/TaxiiServer/raw/master/schema_docker.png)
 
 
 
 
 ### Docker 
-In order to use the Taxii server you'll have to have docker & docker-compose installed and ready to use.
-If it's your first-time with docker (or if you re-install it) go check the documentation : https://docs.docker.com/get-docker/ .
+In order to use the Taxii server, you'll need to have Docker and Docker Compose installed and ready to use. 
+If it's your first time with Docker (or if you reinstall it), go check the documentation: https://docs.docker.com/get-docker/.
 
-Once you got a smooth install. You can go to the directory where docker-compose.yaml is located.
-It should be on the root directory you've just downloaded from git (extract it of course).
+Once you have a smooth installation, you can navigate to the directory where docker-compose.yaml is located. 
+It should be in the root directory that you just downloaded from Git (extract it, of course).
 
-Then you've to do theses commandes in the order :
+Then, you need to execute the following commands in order:
 
 ```bash
     docker-compose build
 ```
-You might be root if you didn't had your docker user to the sudoers. 
 
-Then 
+You might need to be root if you didn't add your Docker user to the sudoers.
+
+Then  : 
+
 ```bash
     docker-compose up -d
 ```
+
 You should have this :
+
 ```bash
 Starting taxiiserver_mongodb_1 ... done
 Starting taxiiserver_ubuntu_1  ... done
 ```
 
-The option -d is for "detach" that mean your container will run as a deamon. It's good in prod. If you want to have the output from the API/DB then forget about the -d. You'll have the output in you current terminal.
-You can stop it by using "Ctrl + Z" and then kill it with "docker-compose down". Or kill it with "Ctlr + C", remenber that the last one is a Sigquit, strong interrupt, so it maybe be cleaner to use the first proposal.
+The option -d is for "detach," which means your container will run as a daemon. It's good for production. 
+If you want to see the output from the API/DB, then omit the -d. You'll have the output in your current terminal.
+You can stop it by using "Ctrl + Z" and then kill it with "docker-compose down." Or kill it with "Ctrl + C." 
+Remember that the last one is a Sigquit (a strong interrupt), so it may be cleaner to use the first option.
 
-When you start without the "-d" option, you should see the ubuntu launching the API.PY :
+When you start without the "-d" option, you should see the Ubuntu container launching the API.PY:
+
 ```bash
 ubuntu_1   | mongodb://mongo:password@mongodb:27017/mydatabase
 ubuntu_1   |  * Serving Flask src 'api'
@@ -133,15 +143,15 @@ Removing taxiiserver_mongodb_1 ... done
 Removing network taxiiserver_default
 ```
 
-Your flask server (this is not a production server) should listen on the port you've configured in the "api_config.yaml".
+Your Flask server (this is not a production server) should listen on the port you've configured in the "api_config.yaml."
 
-You can start calling it with your most loved requester. (Postman, curl etc).
+You can start calling it with your favorite requester (Postman, cURL, etc.).
 
 #### DATABASE, Handling and understanding :
 
-You've currently no data in the mongoDB. You can add somes and create examples of object, collections etc start the file called /database/init_database.py
+Currently, there is no data in the MongoDB. You can add some and create examples of objects, collections, etc. Start the file called /database/init_database.py.
 
-It'll create the DB and all the collections you need :
+It will create the DB and all the collections you need:
 
 - discovery_database :
     - discovery_information
@@ -157,8 +167,8 @@ It'll create the DB and all the collections you need :
     - Status
         - It's the documents you got when you ADD an object into the Taxii Server    
 
-To connect to the DB I personnaly use MongoDB Compass (UI) or mongosh (Shell) :
-Connection string :
+To connect to the DB, I personally use MongoDB Compass (UI) or mongosh (Shell). Connection string: 
+
 ```bash
 mongodb://usr_name:password@localhost:27017/?authMechanism=DEFAULT
 ```

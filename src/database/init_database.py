@@ -66,7 +66,20 @@ class MongoHandler:
         x = mycol.insert_one(example)
 
         mycol = db["status"]
-        mydict = {"status-a": "val1"}
+        mydict = {
+          "_id": {
+            "$oid": "6479abac7c83bb7211684844"
+          },
+          "_queryable": 1,
+          "id": "e3d65437-9630-4138-8851-ae94d8c9a8c1",
+          "status": "success",
+          "request_timestamp": "2023-06-02T08:43:24.500040+00:00",
+          "total_count": 1,
+          "success_count": 1,
+          "failure_count": 0,
+          "pending_count": 0,
+          "timestamp": "2023-06-02T08:43:24.504530+00:00"
+        }
         x = mycol.insert_one(mydict)
 
         mycol = db["collections"]

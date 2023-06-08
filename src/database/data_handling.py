@@ -9,7 +9,6 @@ from pymongo import MongoClient
 
 class DataHandler:
     def __init__(self, url, username, password):
-        print(url)
         self.config = self.read_config_file()
         self.server_limit = self.config.get("SERVER_LIMIT")
         self.client = MongoClient(url, username=username, password=password, authSource='admin',
@@ -453,6 +452,21 @@ class DataHandler:
             else:
                 return None
 
+    def get_api_root_collections_object_by_sid(self, api_root, id_col, sid: str):
+        db = self.client[api_root]
+        col = db['objects']
+        query = {"objects.value": sid, "_collection_id": id_col}
+        projection = {'_id': 0}
+        x = col.find_one(query, projection)
+        return x
+
+    def delete_api_root_collections_object_by_sid(self, api_root, id_col, sid: str):
+        db = self.client[api_root]
+        col = db['objects']
+        query = {"objects.value": sid, "_collection_id": id_col}
+        x = col.delete_one(query)
+        return "deleted"
+
     def get_api_root_collections_object_by_id(self, api_root: str, id_col: str, id_obj: str, list_filter: dict) -> dict:
         """
             Function to get a specific object by his id
@@ -490,7 +504,6 @@ class DataHandler:
             x = col.find({'_collection_id': id_col, 'id': id_obj, "_manifest.version": version}, {'_id': 0}).skip(
                 page * limit).limit(limit)
         if spec_ver is None and version is None:
-            print(page)
             x = col.find({'_collection_id': id_col, 'id': id_obj}, {'_id': 0}).skip(page * limit).limit(limit)
 
         collection = []
@@ -611,7 +624,6 @@ class DataHandler:
 
         """
         _manifest = dict()
-        print(stix_obj)
         media_type = stix_obj[cpt]['objects'][0].get('spec_version', None) or None
         _type = stix_obj[cpt]['type']
         version = stix_obj[cpt]['objects'][0].get('created', None) or None

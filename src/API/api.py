@@ -22,15 +22,18 @@ def read_config_file(filepath):
         return None
 
 
-config = read_config_file("config/api_config.yaml")
-print(config)
+config_api = read_config_file("config/api_config.yaml")
+print(config_api)
 users = {
-    config.get("USER"): config.get("PASSWORD")
+    config_api.get("USER"): config_api.get("PASSWORD")
 }
+config_db = read_config_file("../database/config/db_config.yaml")
+db_usr = config_db.get("USER_DB")
+db_pass = config_db.get("PASSWORD_DB")
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-app.config["MONGO_URI"] = "mongodb://mongo:password@mongodb:27017"
+app.config["MONGO_URI"] = "mongodb://{}:{}@mongodb:27017".format(db_usr, db_pass)
 mongo = PyMongo(app)
 p = DataHandler(app.config["MONGO_URI"], "mongo", "password")
 
@@ -163,18 +166,18 @@ def get_api_root_collections_objects(api_root, id_col):
     return x
 
 
-@app.route("/<string:api_root>/collections/<string:id_col>/objects/<string:id_obj>/", methods=["GET", "DELETE"])
+@app.route("/<string:api_root>/collections/<string:id_col>/objects/sid/<string:sid>/", methods=["GET", "DELETE"])
 @auth.login_required
-def get_api_root_collections_object_by_id(api_root, id_col, id_obj):
+def get_api_root_collections_object_by_sid(api_root, id_col, sid):
     validate_version_parameter_in_accept_header()
     api_root_exist(api_root)
     taxii_col_exist(api_root, id_col)
 
     if request.method == "GET":
-        x = p.get_api_root_collections_object_by_id(api_root, id_col, id_obj, request.args.to_dict())
+        x = p.get_api_root_collections_object_by_sid(api_root, id_col, sid)
         x = json.dumps(x)
     if request.method == "DELETE":
-        x = p.delete_api_root_collections_object_by_id(api_root, id_col, id_obj, request.args.to_dict())
+        x = p.delete_api_root_collections_object_by_sid(api_root, id_col, sid)
 
     return x
 
@@ -229,9 +232,6 @@ def get_api_root_status_by_id(api_root, id_status):
 
 if __name__ == "__main__":
     cf = read_config_file("config/api_config.yaml")
-    print(type(cf))
     port = cf.get('PORT')
     base_url = cf.get('BASE_URL')
     app.run(host=base_url, port=port, debug=True)
-
-

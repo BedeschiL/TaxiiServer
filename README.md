@@ -193,28 +193,28 @@ _"Example1" bellow is a root_api, you can list all root_api by calling the "Taxi
 - All collections 
     - http://localhost:6100/example1/collections
 -  A specific collection (by his ID)
-    - http://localhost:6100/example1/collections/<UUID-OF-COLLECTION>
+    - http://localhost:6100/example1/collections/"UUID-OF-COLLECTION"
 - All object from a specific collection :
-    - http://localhost:6100/example1/collections/<UUID-OF-COLLECTION>/objects 
+    - http://localhost:6100/example1/collections/"UUID-OF-COLLECTION"/objects 
 - A specific object from a specific collection 
-    -  http://localhost:6100/example1/collections/<UUID-OF-COLLECTION>/objects/<UUID-OF-OBJECT> 
-    -  You might add filter :  ?page=1&limit=1 directly to the end of the url  .../<UUID-OF-COLLECTION>/objects/<UUID-OF-OBJECT>?page=1&limit1
+    -  http://localhost:6100/example1/collections/"UUID-OF-COLLECTION"/objects/"UUID-OF-OBJECT" 
+    -  You might add filter :  ?page=1&limit=1 directly to the end of the url  .../"UUID-OF-COLLECTION"/objects/"UUID-OF-OBJECT"?page=1&limit1
 
 - A specific object from a specific collection using is SID ( SID is a sample ID from KOR Labs' pannel)
-   - http://localhost:6100/example1/collections/<<UUID-OF-COLLECTION>>/objects/sid/<SID> 
+   - http://localhost:6100/example1/collections/<"UUID-OF-COLLECTION">/objects/sid/<SID> 
 
 -  An object with a all his version :
-    -  http://localhost:6100/example1/collections/<UUID-OF-COLLECTION>/objects/<UUID-OF-OBJECT>/versions/
+    -  http://localhost:6100/example1/collections/"UUID-OF-COLLECTION"/objects/"UUID-OF-OBJECT"/versions/
     -  You can add the same filter than above
 -  All manifest for a specific collection :
-    -  http://localhost:6100/example1/collections/<UUID-OF-COLLECTION>/manifest/ 
+    -  http://localhost:6100/example1/collections/"UUID-OF-COLLECTION"/manifest/ 
 - A status for the previous ADD Object call (see post section bellow)
     - http://localhost:6100/example1/status/UUID-OF-THE-POST-REQUEST
   
     
 #### POST :
 - Add an object to a specific collection :
-    - http://localhost:6100/example1/collections/<UUID-OF-COLLECTION>/objects
+    - http://localhost:6100/example1/collections/"UUID-OF-COLLECTION"/objects
     - The object is stored in the body of the post request (see bellow curls calls)
     - You can add multiple objects at once
 
@@ -222,11 +222,7 @@ You'll get in return a response with the status ID you can use in the get status
 
 #### DELETE :
 - Delete a specific object from a specific collection :
-    - http://localhost:6100/example1/collections/<UUID-OF-COLLECTION>/objects/<UUID-OF-OBJECT>
-    
-    - A specific object from a specific collection using is SID ( SID is a sample ID from KOR Labs' pannel)
-   - http://localhost:6100/example1/collections/<<UUID-OF-COLLECTION>>/objects/sid/<SID> 
-
+    - http://localhost:6100/example1/collections/"UUID-OF-COLLECTION"/objects/"UUID-OF-OBJECT"
 
 #### Curls equivalent :
 - Information about the whole Taxii2

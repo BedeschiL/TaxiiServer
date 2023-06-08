@@ -78,7 +78,7 @@ So, my server work with DOCKER, it is composed by two containers :
 
 
 A view of the structure :
-![alt text][https://github.com/[username]/[reponame]/blob/[branch]/schema_docker.png](https://github.com/BedeschiL/TaxiiServer/blob/master/schema_docker.png)
+![alt text]([https://github.com/[username]/[reponame]/blob/[branch]/schema_docker.png](https://github.com/BedeschiL/TaxiiServer/blob/master/schema_docker.png))
 
 
 

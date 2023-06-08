@@ -76,6 +76,12 @@ So, my server work with DOCKER, it is composed by two containers :
 - Ubuntu image
     - Handling API requests and connection to the back-end DB 
 
+
+A view of the structure :
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/schema_docker.png?raw=true)
+
+
+
 ### Docker 
 In order to use the Taxii server you'll have to have docker & docker-compose installed and ready to use.
 If it's your first-time with docker (or if you re-install it) go check the documentation : https://docs.docker.com/get-docker/ .

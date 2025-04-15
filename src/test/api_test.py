@@ -690,7 +690,7 @@ class ApiTest(unittest.TestCase):
         url = "{}:{}/example1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116/objects/bundle--164fd1ad-4888-48bf-8eed-71605412b46f".format(
             base_url, port)
         response = requests.delete(url, headers=headers)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(200,response.status_code)
         headers = {
             'Authorization': f'Basic {credentials}',
             'Accept': '',

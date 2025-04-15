@@ -22,7 +22,7 @@ class ApiTest(unittest.TestCase):
         url = "{}:{}/taxii2".format(base_url, port)
         response = requests.get(url)
         status_code = response.status_code
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_discovery_no_auth_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -33,7 +33,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url)
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_discovery_auth_only_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -46,7 +46,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd))
         status_code = response.status_code
 
-        self.assertEquals(status_code, 406)
+        self.assertEqual(status_code, 406)
 
     def test_discovery_auth_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -60,7 +60,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_discovery_auth_accept_wrong_user_pass(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -74,7 +74,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_discovery_auth_accept_right_user_wrong_password(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -88,7 +88,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     """
     TEST API ROOT
@@ -101,7 +101,7 @@ class ApiTest(unittest.TestCase):
         url = "{}:{}/example1".format(base_url, port)
         response = requests.get(url)
         status_code = response.status_code
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_api_root_no_auth_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -112,7 +112,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url)
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_api_root_auth_only_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -125,7 +125,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd))
         status_code = response.status_code
 
-        self.assertEquals(status_code, 406)
+        self.assertEqual(status_code, 406)
 
     def test_api_root_auth_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -139,7 +139,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_api_root_auth_accept_wrong_user_pass(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -153,7 +153,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_api_root_auth_accept_right_user_wrong_password(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -167,7 +167,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     """
     TEST COLLECTION
@@ -180,7 +180,7 @@ class ApiTest(unittest.TestCase):
         url = "{}:{}/example1/collections".format(base_url, port)
         response = requests.get(url)
         status_code = response.status_code
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_collections_no_auth_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -191,7 +191,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url)
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_collections_auth_only_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -204,7 +204,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd))
         status_code = response.status_code
 
-        self.assertEquals(status_code, 406)
+        self.assertEqual(status_code, 406)
 
     def test_collections_auth_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -218,7 +218,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_collections_auth_accept_wrong_user_pass(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -232,7 +232,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_collections_auth_accept_right_user_wrong_password(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -246,7 +246,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     """
     TEST OBJECTS
@@ -264,7 +264,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_get_object_no_auth_usr(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -277,7 +277,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_no_auth_passwd(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -291,7 +291,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -305,7 +305,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     """
     TEST OBJECTS BY ID
@@ -324,7 +324,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_get_object_by_id_no_auth_usr(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -338,7 +338,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_by_id_no_auth_passwd(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -353,7 +353,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_by_id_auth_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -367,7 +367,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
                                 headers={'aa': '/FAIL+json;version=2.1'})
         status_code = response.status_code
-        self.assertEquals(status_code, 406)
+        self.assertEqual(status_code, 406)
 
     """
     TEST OBJECTS BY ID & VERSION
@@ -386,7 +386,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_get_object_by_id_version_no_auth_usr(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -400,7 +400,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_by_id_version_no_auth_passwd(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -416,7 +416,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_by_id_version_auth_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -431,7 +431,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
                                 headers={'aa': '/FAIL+json;version=2.1'})
         status_code = response.status_code
-        self.assertEquals(status_code, 406)
+        self.assertEqual(status_code, 406)
 
     """
     TEST OBJECT MANIFEST
@@ -449,7 +449,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_get_object_manifest_no_auth_usr(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -462,7 +462,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_manifest_no_auth_passwd(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -478,7 +478,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_object_manifest_auth_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -492,7 +492,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
                                 headers={'aa': '/FAIL+json;version=2.1'})
         status_code = response.status_code
-        self.assertEquals(status_code, 406)
+        self.assertEqual(status_code, 406)
 
     """
     TEST STATUS
@@ -510,7 +510,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 200)
+        self.assertEqual(status_code, 200)
 
     def test_get_status_no_auth_usr(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -523,7 +523,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_status_no_auth_passwd(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -538,7 +538,7 @@ class ApiTest(unittest.TestCase):
                                 headers={'Accept': 'application/taxii+json;version=2.1'})
         status_code = response.status_code
 
-        self.assertEquals(status_code, 401)
+        self.assertEqual(status_code, 401)
 
     def test_get_status_auth_no_accept(self):
         cf = self.read_config_file("../API/config/api_config.yaml")
@@ -552,7 +552,7 @@ class ApiTest(unittest.TestCase):
         response = requests.get(url, auth=HTTPBasicAuth(user, passwd),
                                 headers={'aa': '/FAIL+json;version=2.1'})
         status_code = response.status_code
-        self.assertEquals(status_code, 406)
+        self.assertEqual(status_code, 406)
 
     """
     TEST POST/ADD OBJECT

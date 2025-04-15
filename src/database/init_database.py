@@ -2,6 +2,7 @@ import os
 import traceback
 
 import yaml
+from bson import ObjectId
 from pymongo import MongoClient
 
 
@@ -67,9 +68,7 @@ class MongoHandler:
 
         mycol = db["status"]
         mydict = {
-          "_id": {
-            "$oid": "6479abac7c83bb7211684844"
-          },
+          "_id": ObjectId("647f1c0a2b8d3e4f5b8b4567"),
           "_queryable": 1,
           "id": "e3d65437-9630-4138-8851-ae94d8c9a8c1",
           "status": "success",

@@ -120,13 +120,17 @@ def discovery():
 @app.route("/<string:api_root>/", methods=["GET"])
 @auth.login_required
 def get_api_root_information(api_root):
-    validate_version_parameter_in_accept_header()
-    api_root_exist(api_root)
+    try :
+        validate_version_parameter_in_accept_header()
+        api_root_exist(api_root)
 
-    x = p.get_root_information(api_root)
-    x = json.dumps(x)
-
-    return x
+        x = p.get_root_information(api_root)
+        x = json.dumps(x)
+        header = {"Content-Type": "application/taxii+json;version=2.1"}
+        response = Response(response=x, status=200, headers=header)
+    except CustomException as e:
+        response = handle_exception(e)
+    return response
 
 
 @app.route("/<string:api_root>/collections/", methods=["GET"])
